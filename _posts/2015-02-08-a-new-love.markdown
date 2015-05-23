@@ -1,0 +1,12 @@
+---
+layout:     post
+title:      "A New Love"
+subtitle:   "The start of an adventure."
+date:       2015-02-08 06:56
+author:     "Joey F. Poon"
+header-img: "img/home-bg.jpg"
+---
+
+<p>It's 2015 and I'm finally on the internet.  If someone told me that I would be writing a blog post a year ago, I would have laughed.  If someone told me that I would completely change my career path after earning my degree, I would have questioned their sanity.  As I learned, though, life can be pretty surprising.  Just a year ago, I was spending countless nights studying to get into law school.  It was what I wanted, it was what I was trained for.  At least, that's what I thought.  During a completely normal day at work, my colleague and I were having a conversation about some articles we had read.  Honestly, I don't even remember what the articles were about.  The question she asked me during that conversation, however, would completely derail my plans and set me on a completely different course.</p>
+
+<p>"Why don't you just build an app yourself?" That's it, that's all she said.  At that moment, I sat back down in my chair and loaded up the trusty Google.  It started with Codecademy.  HTML, CSS, JavaScript, jQuery, but as I consumed the knowledge, I only got hungrier.  Code School, BNR's Objective-C Programming and iOS Programming, Udacity, Coursera, never in my life had I enjoyed learning so much.  Sure, I could sit there and force myself to study for a degree to feed myself but never could I say that I enjoyed what I was learning to a degree that I would actually do it for fun.  I have found a new love, and her name is programming.</p>
