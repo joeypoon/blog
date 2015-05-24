@@ -9,9 +9,9 @@
     <meta name="description" content="A Programmer's Adventures">
 
     <title>Blog | Joey F. Poon</title>
-    <!-- <title>Blog | Joey F. Poon</title> -->
+    <!-- <title>Demystifying Rails - Blog | Joey F. Poon</title> -->
 
-    <link rel="canonical" href="joeypoon.com/blog/">
+    <link rel="canonical" href="joeypoon.com/blog/2015/04/26/demystifying-rails/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
@@ -74,113 +74,78 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Joey F. Poon</h1>
-                    <!-- <h1>Blog | Joey F. Poon</h1> -->
-                    <hr class="small">
-                    <span class="subheading">A Programmer's Adventures</span>
+                <div class="post-heading">
+                    <h1>Demystifying Rails</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on April 26, 2015</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/blog/2015/05/18/week-2-the-iron-yard-and-my-first-hackathon/">
-        <h2 class="post-title">            Week 2 The Iron Yard and My First Hackathon
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 18, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/blog/2015/05/09/week-1-the-iron-yard/">
-        <h2 class="post-title">            Week 1 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 9, 2015</p>
-</div>
-<hr>
+				<p>It’s been a busy week at work. I mean, look at how sad this <a href="https://github.com/joeypoon">past week</a> was. Fortunately, I was able to get my code on this weekend. I took a slight detour from Rails previously to brush up on my Ruby and am now back at Rails. It is so much easier to understand Rails when you know some Ruby. Things are definitely sticking better this time around. Some awesome things I was able to learn this weekend:</p>
 
-<div class="post-preview">
-    <a href="/blog/2015/04/26/demystifying-rails/">
-        <h2 class="post-title">            Demystifying Rails
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 26, 2015</p>
-</div>
-<hr>
+<h3>Sass</h3>
+<p>Okay, this isn’t specifically Rails but it’s still awesome. Syntactically awesome stylesheets could not be a more appropriate name. Being so use to nesting and variables, it definitely felt like hassle at times trying to write plain css. Yay for Sass!</p>
 
-<div class="post-preview">
-    <a href="/blog/2015/04/19/my-journey-to-the-iron-yard/">
-        <h2 class="post-title">            My Journey to the Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 19, 2015</p>
-</div>
-<hr>
+<h3>Partials</h3>
+<p>There is just something so satisfying about breaking down chunky looking code into smaller chunks. Partials are welcome in my code any day. Hopefully I can commit another naming convention to memory (chanting: _partial _partial _partial).</p>
 
-<div class="post-preview">
-    <a href="/blog/2015/04/14/on-the-road-to-testing/">
-        <h2 class="post-title">            On The Road To Testing
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 14, 2015</p>
-</div>
-<hr>
+<h3>Paths</h3>
+<pre>get 'some_page' =&gt; 'controller#action'</pre>
+<p>I’ve been wondering for a while how to customize urls so learning about paths in Rails was happy times.</p>
+
+<h3>Asset Pipeline</h3>
+<pre>rails new my_app</pre>
+<p>creates so many things that understanding where things were took a while. Learning about the asset pipeline was definitely a relief. Having the manifest include everything in the directory is so convenient.</p>
+
+<h3>Tests</h3>
+<p>I have been trying to write <a href="http://joeypoon.com/blog/2015/04/14/on-the-road-to-testing/">my own tests</a> and doing a <a href="https://github.com/joeypoon/Summer_FA_Calculator">terrible job</a>. Rails makes testing so much easier. I’m just starting to grasp the amazing things I can do with</p>
+<pre>rake test</pre>
+<p>but I definitely feel like I’m getting closer to TDD. Thank you</p>
+<pre>validates</pre>
+<p>and</p>
+<pre>assert</pre>
+
+<h3>Regex</h3>
+<p>Okay, I honestly still don’t get regex. I’ve had to use regex in a couple of solutions before but I was able to find a suitable answer online so I didn’t bother learning how to write one on my own. I’m going to do it this time. I promise!</p>
+
+<p>What a great weekend :).</p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/blog/page2">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2015/04/19/my-journey-to-the-iron-yard/" data-toggle="tooltip" data-placement="top" title="My Journey to the Iron Yard">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2015/05/09/week-1-the-iron-yard/" data-toggle="tooltip" data-placement="top" title="Week 1 The Iron Yard">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

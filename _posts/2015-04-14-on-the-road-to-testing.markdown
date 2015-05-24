@@ -1,0 +1,183 @@
+---
+layout:     post
+title:      "On The Road To Testing"
+subtitle:   ""
+date:       2015-04-14 21:18:22 +0000
+author:     "Joey F. Poon"
+header-img: "img/home-bg.jpg"
+---
+
+<p>So after <a href="http://joeypoon.com/refactoring-complete/">refactoring</a>, I decided to try my hand at testing. Realistically, I probably should have written tests before I even started writing the <a href="https://github.com/joeypoon/Summer_FA_Calculator">program</a> but I was fortunate enough that I had a <a href="http://joeypoon.com/working-efficiently/" >bunch of actual test cases</a> that I could use as I went along. However, doing it the way I did definitely helped me realize the value of TDD. I'm sure that Rails has some handy tools for testing but I figured I would try to learn things from the ground up. I know I'm still doing a bunch of things incorrectly but it has definitely been a journey.</p>
+
+<h3>Classes</h3>
+<p>So the first thing I tried doing was to write a test class. I currently only have a single class handling the calculations for the program(I do think breaking it down into more classes would be much better but I haven't had a chance yet) so I just made my test class a subclass of it:
+<span class="lang:ruby decode:true  crayon-inline ">class testing &lt; AidCalculations</span>.
+I'm sure many of you have spotted the problem already. I spent a good 30 minutes googling around before I learned that all I needed was to make it:
+<span class="lang:ruby decode:true  crayon-inline ">class Testing &lt; AidCalculations</span>.
+I see what people mean when they say that conventions are important. I then spent the next hour renaming my variables and method names.</p>
+
+<h3>attr_accessor</h3>
+<p>Since the program took input through the command line and stored them in ivars, I figured that I would simply create random values and store them in the ivars. This led me to reading about attr_accessor. Cool, I'll just toss in some attr_accessors and we're done. Explosions. Undefined method for nil. What? Okay, let me initialize the variables with 0 and see if that changes anything. Armageddon. How is my variable still nil? Sprinkle some google and set the timer for 30 minutes and ding! ivars are not inherited. Time to erase all the work I've done for the last 2 hours. At least I got some knowledge out of that, right?</p>
+<h3>Backtracking</h3>
+<p>I briefly considered using class variables instead of ivars but my gut(please correct me if I'm wrong) was telling me not to. I read so much about OOP being about hiding stuff that making my variables more accessible just felt like I was throwing together a hack. I decided instead to backtrack. I deleted Testing and threw the methods into AidCalculations. While my brain was on the topic of hiding implementation details, I decided to also go ahead and throw everything I could into private. This is what I ended up with on the public side:</p>
+<pre class="minimize:true tab-convert:true tab-size:2 lang:ruby decode:true ">class AidCalculations
+
+def test
+test_tasfa
+test_dependency_status
+test_grade_level
+test_old_budget
+test_old_efc
+test_pell_efc
+test_sap_status
+if is_sap
+  exit
+end
+test_fs_pell
+test_fs_sub
+test_fs_unsub
+test_fall_enrollment
+test_spring_enrollment
+test_pell_leu
+test_total_sub_borrowed
+test_total_unsub_borrowed
+set_total_loans_borrowed
+test_summer_budget
+set_new_budget
+test_new_efc
+set_summer_efc
+
+calculate_awards
+display_awards
+display_stats
+end
+
+def ask_sap
+begin
+  puts "\nPlease enter SAP status (good/bad): "
+  @sap_status = gets.chomp
+end until @sap_status == "good" || @sap_status == "bad"
+end
+
+def is_sap
+if @sap_status == "bad"
+  puts "***Please review Summer application after student's SAP is reviewed***"
+  return true
+else
+  return false
+end
+end
+
+def get_info
+ask_tasfa
+ask_dependency_status
+ask_old_budget
+ask_old_efc
+
+if @tasfa == "n"
+  ask_pell_efc
+  ask_fs_pell
+  ask_fs_sub
+  ask_fs_unsub
+end
+
+ask_fall_enrollment
+ask_spring_enrollment
+
+if @tasfa == "n"
+  ask_leu
+  ask_total_sub_borrowed
+  ask_total_unsub_borrowed
+  set_total_loans_borrowed
+  check_leu
+  check_loan_limits
+end
+
+check_enrollment
+ask_summer_budget
+#student.set_new_budget  #optional
+
+ask_new_efc
+check_efc
+set_summer_efc
+ask_grade_level
+end
+
+def calculate_awards
+max_mdtu = 1500
+if @tasfa == "n"
+  calculate_pell
+  calculate_mdtus
+  set_annual_loan_limits
+  calculate_sub
+  calculate_unsub
+  set_total_awards
+  check_over_summer_budget
+else
+  @mdtut = max_mdtu
+end
+end
+
+def display_awards
+if @tasfa == "n"
+  puts "\nPell: " + @pell_award.to_s
+  puts "MDTUS: " + @mdtus.to_s
+  puts "Sub Loans: " + @sub_award.to_s
+  puts "Unsub Loans: " + @unsub_award.to_s
+else
+  puts "MDTUT: " + @mdtut.to_s
+end
+end
+
+def display_roausdf
+puts "\n***Please input in ROAUSDF: LEU, Summer hours, budget, and EFC***"
+puts "\nLEU: " + @pell_leu.to_s + " \nSummer budget: " + @summer_budget.to_s + " \nSummer EFC: " + @summer_efc.to_s
+end
+
+def display_stats
+puts "\nFill out sum app form: "
+puts "SAP: " + @sap_status.to_s + "\nFall + Spring Pell: " + @fs_pell.to_s + "\nNew Budget: " + @new_budget.to_s + "\nOld Budget: " + @old_budget.to_s + "\nSummer Budget: " + @summer_budget.to_s + "\nNew EFC: " + @new_efc.to_s + "\nOld EFC: " + @old_efc.to_s + "\nSummer EFC: " + @summer_efc.to_s + "\nSummer Pell: " + @pell_award.to_s + "\nSummer Sub: " + @sub_award.to_s + "\nSummer Unsub: " + @unsub_award.to_s + "\nMDTUS: " + @mdtus.to_s + "\nMDTUT: " + @mdtut.to_s
+end
+
+private</pre>
+<h3>Yay, Learning!</h3>
+<p>I definitely learned a ton of things by building this application from scratch. It just feels so different when you're not following a tutorial. The amount of joy and satisfaction you get when your program works is just so much sweeter. Some other note worthy things from this journey: I gained a TON of experience reading error messages and I learned how little I truly understand about OOP(So much to read, so little time). I imagine this application will be completely restructured and more intuitive when I learn to deploy it using Rails (Can't wait to start Iron Yard!). For now, I'm just happy that my crude implementation works:</p>
+<pre class="minimize:true tab-convert:true tab-size:2 lang:ruby decode:true ">require_relative "aid_calculations"
+
+puts "Enter 1 to continue or press any other key to exit."
+action = gets.chomp
+
+while action == "test"
+student = AidCalculations.new
+student.test
+
+puts "\nEnter 1 to continue or press any other key to exit"
+action = gets.chomp
+end
+
+while action == "1"
+
+student = AidCalculations.new
+
+student.ask_sap
+if student.is_sap
+redo
+end
+
+student.get_info
+
+student.display_roausdf
+gets
+
+student.calculate_awards
+
+puts "\nStudent should be awarded: "
+student.display_awards
+#student.display_stats  #optional
+
+puts "\nEnter 1 to continue or press any other key to exit"
+action = gets.chomp
+
+end
+</pre>
+<p>If you have any suggestions or comments about the program, tweet at me :).</p>
