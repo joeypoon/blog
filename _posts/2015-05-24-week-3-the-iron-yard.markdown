@@ -8,7 +8,7 @@ header-img: "img/home-bg.jpg"
 ---
 
 ###Long Weekend!
-It's memorial weekend, yay! Except, I haven't had a weekend since I started TIY. It doesn't seem like I'll have one anytime soon either. I spent all of yesterday trying to migrate out of WordPress. I fixed up my <a href="http://joeypoon.com">portfolio</a> and moved it to Github pages. It loads so much faster now that it brings a tear to my eyes. I was actually planning to write this blog post yesterday but I ended up spending literally an entire day trying to configure my DNS to get my custom domain working. In the end, I was wasting my time because the settings were fine, my hosting provider was just having some issues. Wonderful timing. If you've been following my blog, you'll notice that it looks a little different now too. That's because I also migrated my blog into Github pages and I am now blogging with Jekyll and Atom :).
+It's memorial weekend, yay! Except, I haven't had a weekend since I started TIY. It doesn't seem like I'll have one anytime soon either. I spent all of yesterday trying to migrate out of WordPress. I fixed up my <a href="http://joeypoon.com">portfolio</a> and moved it to Github pages. It loads so much faster now that it brings a tear to my eyes. I was actually planning to write this blog post yesterday but I ended up spending literally an entire day trying to configure my DNS to get my custom domain working. In the end, I was wasting my time because the settings were fine, my hosting provider was just having some issues. Wonderful timing. If you've been following my blog, you'll notice that it looks a little different now too. That's because I am now blogging with Jekyll and Atom :).
 <pre>nerd_level++</pre>
 
 ###Monday
