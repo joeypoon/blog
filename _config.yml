@@ -3,7 +3,7 @@ title: Blog | Joey F. Poon
 header-img: img/home-bg.jpg
 email: joey@joeypoon.com
 description: "A Programmer's Adventures"
-baseurl: "/blog"
+baseurl: ""
 url: "joeypoon.com"
 twitter_username: joeyfpoon
 github_username:  joeypoon
@@ -12,6 +12,6 @@ linkedin_username: joeypoon
 # Build settings
 markdown: kramdown
 highlighter: pygments
-permalink: pretty
+permalink: :title
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]

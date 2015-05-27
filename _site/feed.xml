@@ -5,20 +5,20 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 24 May 2015 14:26:19 -0500</pubDate>
-    <lastBuildDate>Sun, 24 May 2015 14:26:19 -0500</lastBuildDate>
+    <pubDate>Wed, 27 May 2015 10:31:36 -0500</pubDate>
+    <lastBuildDate>Wed, 27 May 2015 10:31:36 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>Week 3 The Iron Yard</title>
         <description>&lt;h3 id=&quot;long-weekend&quot;&gt;Long Weekend!&lt;/h3&gt;
-&lt;p&gt;It’s memorial weekend, yay! Except, I haven’t had a weekend since I started TIY. It doesn’t seem like I’ll have one anytime soon either. I spent all of yesterday trying to migrate out of WordPress. I fixed up my &lt;a href=&quot;http://joeypoon.com&quot;&gt;portfolio&lt;/a&gt; and moved it to Github pages. It loads so much faster now that it brings a tear to my eyes. I was actually planning to write this blog post yesterday but I ended up spending literally an entire day trying to configure my DNS to get my custom domain working. In the end, I was wasting my time because the settings were fine, my hosting provider was just having some issues. Wonderful timing. If you’ve been following my blog, you’ll notice that it looks a little different now too. That’s because I also migrated my blog into Github pages and I am now blogging with Jekyll and Atom :).&lt;/p&gt;
+&lt;p&gt;It’s memorial weekend, yay! Except, I haven’t had a weekend since I started TIY. It doesn’t seem like I’ll have one anytime soon either. I spent all of yesterday trying to migrate out of WordPress. I fixed up my &lt;a href=&quot;http://joeypoon.com&quot;&gt;portfolio&lt;/a&gt; and moved it to Github pages. It loads so much faster now that it brings a tear to my eyes. I was actually planning to write this blog post yesterday but I ended up spending literally an entire day trying to configure my DNS to get my custom domain working. In the end, I was wasting my time because the settings were fine, my hosting provider was just having some issues. Wonderful timing. If you’ve been following my blog, you’ll notice that it looks a little different now too. That’s because I am now blogging with Jekyll and Atom :).&lt;/p&gt;
 &lt;pre&gt;nerd_level++&lt;/pre&gt;
 
 &lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-11/triangle_challenge.rb&quot;&gt;Challenge&lt;/a&gt; today is to determine the type of a triangle given the length of its 3 sides. Starting today, our challenges are supposed to be in a new form. We’re given tests and we write code to make it green. I like this change as it forces us to get use to testing. Honestly, this challenge was a little tough for me. I’m not sure why, but I have been having a strange aversion to if/elsif trees. I kept trying to find some elegant loop solution. After wasting enough time, I still ended up using a bunch of if statements (original solution is commented out). Funny enough, my original solution used more if statements and the logic behind the solution is fuzzy at best. I’ll need to work on that weird mentality of mine. Red, Green, Refactor – not Red, Refactor, Green.&lt;/p&gt;
 
-&lt;p&gt;Lecture today is over testing and some HTML/CSS. Jesse walked us through creating a bowling score calculator with TDD. It is interesting to see how even someone as experienced as Jesse backtracks with solutions. While I like the idea of testing, I don’t think I’ll as zealous about testing every single method. To me, methods are to break things down into manageable parts. If these parts are small enough, it feels almost pointless to test the smaller methods. I also don’t like the idea of not looking at the problem as a whole and just letting TDD guide you. I find that doing so will sometimes waste time by forcing you to rewrite previous solutions. I do like that TDD forces you to write better(?) code but at the same time I think that looking at the problem at a higher-level can help prevent some rewriting down the road (I have opinions, please don’t grab the pitchforks).&lt;/p&gt;
+&lt;p&gt;Lecture today is over testing and some HTML/CSS. Jesse walked us through creating a bowling score calculator with TDD. It is interesting to see how even someone as experienced as Jesse backtracks with solutions. While I like the idea of testing, I don’t think I’ll be as zealous about testing every single method. To me, methods are to break things down into manageable parts. If these parts are small enough, it feels almost pointless to test the smaller methods. I also don’t like the idea of not looking at the problem as a whole and just letting TDD guide you. I find that doing so will sometimes waste time by forcing you to rewrite previous solutions. I do like that TDD forces you to write better(?) code but at the same time I think that looking at the problem at a higher-level can help prevent some rewriting down the road (I have opinions, please don’t grab the pitchforks).&lt;/p&gt;
 
 &lt;p&gt;Homework is additional review on testing. We had to write code to pass the &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-11&quot;&gt;bob_test&lt;/a&gt;.&lt;/p&gt;
 
@@ -58,15 +58,15 @@ $ git push -u origin master
 &lt;h3 id=&quot;confessions&quot;&gt;Confessions&lt;/h3&gt;
 &lt;p&gt;I was having some weird moral guilt about &lt;a href=&quot;http://joeypoon.com/blog/2015/05/18/week-2-the-iron-yard-and-my-first-hackathon/&quot;&gt;building Houston.Vote&lt;/a&gt; with WordPress. Near the end of the week, I came to terms that this was a silly thing to feel guilty about. We initially tried to use Rails but we decided that we didn’t know it well enough to finish the product within 24 hours. We were 2 weeks into TIY and we’re still learning. So there you have it. We used WordPress. We still got a working &lt;a href=&quot;http://Houston.vote&quot;&gt;website&lt;/a&gt; and I am proud of what we did in 24 hours.&lt;/p&gt;
 
-&lt;p&gt;I bought a theme for my &lt;a href=&quot;http://joeypoon.com&quot;&gt;portfolio&lt;/a&gt;. I actually don’t feel guilty about this. The fact is that I’m not a designer, nor do I seek to be. I want to develop back-end logic and understand how to do front-end. I could spend days trying to make a decent looking website or I could spend 10 dollars to buy a way better looking theme. I actually did end up spending a ton of time trying to get the theme to work properly but I’d attribute that to my lack of understanding of Jekyll/Middleman. It was a good learning experience on using Jekyll/Middleman so I’m not unhappy about the time I spent. I know now that if I have to apply another theme, I could do it quickly.&lt;/p&gt;
+&lt;p&gt;I also bought a theme for my &lt;a href=&quot;http://joeypoon.com&quot;&gt;portfolio&lt;/a&gt;. I actually don’t feel guilty about this. The fact is that I’m not a designer, nor do I seek to be. I want to develop back-end logic and understand how to do front-end. I could spend days trying to make a decent looking website or I could spend 10 dollars to buy a way better looking theme. I actually did end up spending a ton of time trying to get the theme to work properly but I’d attribute that to my lack of understanding of Jekyll/Middleman. It was a good learning experience on using Jekyll/Middleman so I’m not unhappy about the time I spent. I know now that if I have to apply another theme, I could do it quickly.&lt;/p&gt;
 
 &lt;h3 id=&quot;other-stuff&quot;&gt;Other Stuff&lt;/h3&gt;
 &lt;p&gt;I’m still having some trouble getting redirects to work properly so unfortunately some links for my blog might be broken but I’ll hopefully have it working soon™. I really need to get started on my lab. I was suppose to have my blog fully migrated midday yesterday but I’m still not completely done. Better hop to it.
 &lt;img src=&quot;http://temp.nickydisla.com/temp/wp-content/uploads/2015/05/goat_flip.gif&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 24 May 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/05/24/week-3-the-iron-yard/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/05/24/week-3-the-iron-yard/</guid>
+        <link>joeypoon.com/blog/week-3-the-iron-yard</link>
+        <guid isPermaLink="true">joeypoon.com/blog/week-3-the-iron-yard</guid>
         
         
       </item>
@@ -108,8 +108,8 @@ From what I could tell, it didn&#39;t like me adding ivars into the class? After
 &lt;p&gt;This has been an exhausting week. I imagine it isn&#39;t going to get any less tiring anytime soon. Fortunately, it is an awesome kind of tiring. Met some awesome people, built some amazing programs, and learned a bunch of new things. This has definitely been a productive week.&lt;/p&gt;
 </description>
         <pubDate>Mon, 18 May 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/05/18/week-2-the-iron-yard-and-my-first-hackathon/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/05/18/week-2-the-iron-yard-and-my-first-hackathon/</guid>
+        <link>joeypoon.com/blog/week-2-the-iron-yard-and-my-first-hackathon</link>
+        <guid isPermaLink="true">joeypoon.com/blog/week-2-the-iron-yard-and-my-first-hackathon</guid>
         
         
       </item>
@@ -142,8 +142,8 @@ Today marks our first lab assignment. The difference between a lab assignment an
 &lt;p&gt;TLDR: TIY is awesome, the people are awesome, do it.&lt;/p&gt;
 </description>
         <pubDate>Sat, 09 May 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/05/09/week-1-the-iron-yard/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/05/09/week-1-the-iron-yard/</guid>
+        <link>joeypoon.com/blog/week-1-the-iron-yard</link>
+        <guid isPermaLink="true">joeypoon.com/blog/week-1-the-iron-yard</guid>
         
         
       </item>
@@ -180,8 +180,8 @@ Today marks our first lab assignment. The difference between a lab assignment an
 &lt;p&gt;What a great weekend :).&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Apr 2015 22:32:24 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/04/26/demystifying-rails/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/04/26/demystifying-rails/</guid>
+        <link>joeypoon.com/blog/demystifying-rails</link>
+        <guid isPermaLink="true">joeypoon.com/blog/demystifying-rails</guid>
         
         
       </item>
@@ -208,8 +208,8 @@ Today marks our first lab assignment. The difference between a lab assignment an
 &lt;p&gt;I thought I was excited when I first realized that I could actually attend TIY, however, I am somehow still getting more excited by the day. I stopped by TIY this past Wednesday for their crash course and I was reminded of why I wanted to go to TIY. Sure you could take your time to learn this stuff at home but I’m just as excited about the atmosphere and the people as I am about the learning. Let the countdown begin!&lt;/p&gt;
 </description>
         <pubDate>Sun, 19 Apr 2015 13:35:28 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/04/19/my-journey-to-the-iron-yard/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/04/19/my-journey-to-the-iron-yard/</guid>
+        <link>joeypoon.com/blog/my-journey-to-the-iron-yard</link>
+        <guid isPermaLink="true">joeypoon.com/blog/my-journey-to-the-iron-yard</guid>
         
         
       </item>
@@ -392,8 +392,8 @@ end
 &lt;p&gt;If you have any suggestions or comments about the program, tweet at me :).&lt;/p&gt;
 </description>
         <pubDate>Tue, 14 Apr 2015 16:18:22 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/04/14/on-the-road-to-testing/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/04/14/on-the-road-to-testing/</guid>
+        <link>joeypoon.com/blog/on-the-road-to-testing</link>
+        <guid isPermaLink="true">joeypoon.com/blog/on-the-road-to-testing</guid>
         
         
       </item>
@@ -407,8 +407,8 @@ end
 &lt;p&gt;Almost like reading English :).&lt;/p&gt;
 </description>
         <pubDate>Sat, 11 Apr 2015 01:58:50 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/04/11/refactoring-complete/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/04/11/refactoring-complete/</guid>
+        <link>joeypoon.com/blog/refactoring-complete</link>
+        <guid isPermaLink="true">joeypoon.com/blog/refactoring-complete</guid>
         
         
       </item>
@@ -424,8 +424,8 @@ end
 &lt;p&gt;Perhaps the most magical thing about this whole experience is the fact that I&#39;m enjoying work more. When I saw that stack of paperwork on Wednesday, I was depressed. Half of the reason I started writing a program to do my job was simply because I was procrastinating. As I got closer to completion, however, I found myself looking forward to starting to work on the paperwork. I was even excited to go into work this morning because I knew I could use my program for it. As I analyzed why I suddenly felt happier even though I still had to do a stack of applications, I realized that work was no longer work. The stack of papers was simply a test for my program. Every time I squashed a bug, I would eagerly put in the next application in hopes that it was crushed forever. Every time I added a feature, I would enter an application with anticipation. Programming just makes everything better.&lt;/p&gt;
 </description>
         <pubDate>Thu, 09 Apr 2015 22:25:21 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/04/09/everyone-should-learn-to-program/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/04/09/everyone-should-learn-to-program/</guid>
+        <link>joeypoon.com/blog/everyone-should-learn-to-program</link>
+        <guid isPermaLink="true">joeypoon.com/blog/everyone-should-learn-to-program</guid>
         
         
       </item>
@@ -443,8 +443,8 @@ end
 &lt;p&gt;It definitely still needs some tweaking and refactoring but that&#39;s not work ;). If you have to do this exact repetitive work, help yourself to the &lt;a href=&quot;https://github.com/joeypoon/Summer_FA_Calculator&quot;&gt;program&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Apr 2015 19:37:46 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/04/08/working-efficiently/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/04/08/working-efficiently/</guid>
+        <link>joeypoon.com/blog/working-efficiently</link>
+        <guid isPermaLink="true">joeypoon.com/blog/working-efficiently</guid>
         
         
       </item>
@@ -456,8 +456,8 @@ end
 &lt;p&gt;Back from vacation (&lt;a href=&quot;http://nickydisla.com/spring-break-15/&quot;&gt;Video &lt;/a&gt;if you&#39;re interested) and while I enjoyed every minute of it, I can&#39;t even begin to describe how itchy my fingers are to code.  So with my Rails Engineering course at the &lt;a href=&quot;http://theironyard.com/&quot;&gt;Iron Yard&lt;/a&gt; beginning in May, I recently started learning some Ruby and Rails.  I&#39;m currently working on the &lt;a href=&quot;https://www.railstutorial.org/&quot;&gt;Ruby on Rails Tutorial&lt;/a&gt; and having finished the chapter on static pages, I decided to try deploying my &lt;a href=&quot;https://github.com/joeypoon/speed_game&quot;&gt;speed game&lt;/a&gt; through Heroku.  The result was a mixed bag.  I was pretty excited that it worked.  However, I could only get it to work with internal JS and I certainly don&#39;t want to be deploying apps in the future with the JS exposed like that.  Oddly enough, making the CSS external was simple enough.  Rails is still feeling too magical, better get back to reading.&lt;/p&gt;
 </description>
         <pubDate>Mon, 30 Mar 2015 18:26:20 -0500</pubDate>
-        <link>joeypoon.com/blog/2015/03/30/learning-rails/</link>
-        <guid isPermaLink="true">joeypoon.com/blog/2015/03/30/learning-rails/</guid>
+        <link>joeypoon.com/blog/learning-rails</link>
+        <guid isPermaLink="true">joeypoon.com/blog/learning-rails</guid>
         
         
       </item>
