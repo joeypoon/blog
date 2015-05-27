@@ -3,7 +3,7 @@ title: Blog | Joey F. Poon
 header-img: img/home-bg.jpg
 email: joey@joeypoon.com
 description: "A Programmer's Adventures"
-baseurl: ""
+baseurl: "/blog"
 url: "joeypoon.com"
 twitter_username: joeyfpoon
 github_username:  joeypoon
