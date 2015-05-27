@@ -51,10 +51,10 @@ This week's guest speaker is <a href="https://twitter.com/RookieOne">Jonathan Bi
 I'm slacking a little on this week's lab. I haven't even looked at it yet. I'm way too absorbed in trying to get a decent looking portfolio.
 
 ###Confessions
-I was having some weird moral guilt about <a href="http://joeypoon.com/blog/2015/05/18/week-2-the-iron-yard-and-my-first-hackathon/">building Houston.Vote</a> with WordPress. Near the end of the week, I came to terms that this was a silly thing to feel guilty about. We initially tried to use Rails but we decided that we didn't know it well enough to finish the product within 24 hours. We were 2 weeks into TIY and we're still learning. So there you have it. We used WordPress. We still got a working <a href="http://Houston.vote">website</a> and I am proud of what we did in 24 hours.
+I was having some weird moral guilt about <a href="{{ site.baseurl }}/week-2-the-iron-yard-and-my-first-hackathon/">building Houston.Vote</a> with WordPress. Near the end of the week, I came to terms that this was a silly thing to feel guilty about. We initially tried to use Rails but we decided that we didn't know it well enough to finish the product within 24 hours. We were 2 weeks into TIY and we're still learning. So there you have it. We used WordPress. We still got a working <a href="http://Houston.vote">website</a> and I am proud of what we did in 24 hours.
 
 I also bought a theme for my <a href="http://joeypoon.com">portfolio</a>. I actually don't feel guilty about this. The fact is that I'm not a designer, nor do I seek to be. I want to develop back-end logic and understand how to do front-end. I could spend days trying to make a decent looking website or I could spend 10 dollars to buy a way better looking theme. I actually did end up spending a ton of time trying to get the theme to work properly but I'd attribute that to my lack of understanding of Jekyll/Middleman. It was a good learning experience on using Jekyll/Middleman so I'm not unhappy about the time I spent. I know now that if I have to apply another theme, I could do it quickly.
 
 ###Other Stuff
 I'm still having some trouble getting redirects to work properly so unfortunately some links for my blog might be broken but I'll hopefully have it working soon™. I really need to get started on my lab. I was suppose to have my blog fully migrated midday yesterday but I'm still not completely done. Better hop to it.
-<img src="http://temp.nickydisla.com/temp/wp-content/uploads/2015/05/goat_flip.gif">
+<img src="{{ site.baseurl }}/img/goat_flip.gif">
