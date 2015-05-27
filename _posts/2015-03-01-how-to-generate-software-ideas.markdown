@@ -7,7 +7,7 @@ author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"
 ---
 
-<img class="alignnone  wp-image-122" src="http://temp.nickydisla.com/temp/wp-content/uploads/2015/05/perfection.png" alt="joey poon how to generate software ideas joey-poon">
+<img class="alignnone  wp-image-122" src="{{ site.baseurl }}/img/perfection.png" alt="joey poon how to generate software ideas joey-poon">
 
 <p>So this morning I saw the above on Twitter.  This is interesting because for the longest time, I would spent pointless hours a day racking my head trying to think of software ideas.  I would theorize about what perfect app I could make to solve world hunger or bring world peace.  What can I create to make everyone's lives more comfortable?  After I decide that I've wasted enough time just theorizing, I inevitably return to whatever online lesson I'm working on.  I follow along with the lesson and create an app to the lesson's specifications.  But not really.</p>
 

@@ -9,7 +9,7 @@ header-img: "img/home-bg.jpg"
 
 <p>Over the past year or so, I have been teaching myself programming using mostly the internet and some books.  The amount of knowledge I have gained during this time is amazing.  I feel nothing but absolute confidence when solving problems on the internet.  However, if there is one thing that I have been struggling with, it is translating that knowledge into an actual product.  And if there's one thing that I need in order to become a full-time developer, I'd venture to say that ability to create an actual product is pretty important.  All the code in the world is useless unless I can actually do something with it.</p>
 
-<img class="aligncenter" src="http://temp.nickydisla.com/temp/wp-content/uploads/2015/05/TheIronYard.jpg" alt="TheIronYard joey poon risky proposition" >
+<img class="aligncenter" src="{{ site.baseurl }}/img/TheIronYard.jpg" alt="TheIronYard joey poon risky proposition" >
 
 <p>Enter <a href=" http://theironyard.com/">the Iron Yard</a>.  While looking over degree and online options, I stumbled across what some people were calling coding bootcamps.  An immersive 60 hour per week environment that lasted an average of 9-12 weeks.  I immediately fell in love with the idea.  Doing nothing but programming for 3 months?  Sign me up.  Luckily for me, the Iron Yard is about to start a mobile engineering program in Houston.  Unfortunately, however, making such a commitment isn't quite so simple.  Rent, bills, and student loan payments don't simply go away.  There's also no doubt that I would have to leave my stable full-time job.  That's certainly a risky proposition for an additional 12k of debt and only the prospect of a job afterwards.</p>
 
