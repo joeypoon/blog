@@ -5,9 +5,62 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 May 2015 13:25:31 -0500</pubDate>
-    <lastBuildDate>Wed, 27 May 2015 13:25:31 -0500</lastBuildDate>
+    <pubDate>Sun, 31 May 2015 23:39:05 -0500</pubDate>
+    <lastBuildDate>Sun, 31 May 2015 23:39:05 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Week 4 The Iron Yard</title>
+        <description>&lt;h3 id=&quot;bittersweet&quot;&gt;Bittersweet&lt;/h3&gt;
+&lt;p&gt;It’s the end of my 4th week at TIY and it’s a strange feeling. We’ve gone from variables and arrays on day 1 to creating &lt;a href=&quot;https://github.com/joeypoon/surf_and_rails&quot;&gt;dynamic pages with Rails&lt;/a&gt; in less than 20 class days. With a third of the program now complete, I’m excited about what more I’ll be able to do at the end of the whole program. At the same time, I’m sad to see time passing so quickly. These 4 weeks have been the busiest and yet the most rewarding weeks of my life. It’s a bittersweet feeling. Oh, and I did &lt;a href=&quot;/blog/week-3-the-iron-yard&quot;&gt;eventually&lt;/a&gt; finish our &lt;a href=&quot;https://github.com/joeypoon/surf-and-paddle&quot;&gt;week 3 lab&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
+&lt;p&gt;Memorial day, no class 😢.&lt;/p&gt;
+
+&lt;h3 id=&quot;tuesday&quot;&gt;Tuesday&lt;/h3&gt;
+&lt;p&gt;Crazy rain caused some ridiculous flooding and freeways were all closed. Needless to say, TIY was closed too 😢.
+&lt;img src=&quot;/blog/img/houston-flood.jpg&quot; alt=&quot;houston-flood-2015&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;wednesday&quot;&gt;Wednesday&lt;/h3&gt;
+&lt;p&gt;Yay class! I have been so excited for this week to come. It’s Rails week! But before that, &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/blob/master/README.md&quot;&gt;challenge&lt;/a&gt;. Nothing too fancy today, just a bit of CSS positioning practice.&lt;/p&gt;
+
+&lt;p&gt;Lecture today is on…Rails! Bet you didn’t see that coming! So excite, much knowledge. Jesse did a quick run through of a basic Rails app with static pages.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rails new app_name
+rails g controller Pages action1 action2
+rails s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;He talked us through a simple &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/tree/master/texas&quot;&gt;Texas Cities site&lt;/a&gt;. During the walkthrough, he also went over routes, the gemfile, and the asset pipeline. No models yet.&lt;/p&gt;
+
+&lt;p&gt;After lunch, we had a review and Jesse ended up doing another talk-through of a &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/tree/master/review&quot;&gt;superhero static pages app&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Homework is to create a basic Rails app with some pages. I made mine about &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-16&quot;&gt;animals gifs&lt;/a&gt; because why not.
+&lt;img src=&quot;/blog/img/dog-pooping.gif&quot; alt=&quot;dog-pooping&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
+&lt;p&gt;Today’s &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-17/blob/master/README.md&quot;&gt;challenge&lt;/a&gt; is some Ruby class review. The interesting thing about this challenge is the introduction of &lt;code&gt;class Date&lt;/code&gt; to help us get the age of a person. I have to admit that I got a little cocky when I read challenge. &lt;code&gt;Date.today.year - @dob.year&lt;/code&gt;, ezpz right? Nope. Doesn’t pass the test because I forgot to account for whether the birthday has already passed or not for the current year. I was eventually able to come up with &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-17/person.rb&quot;&gt;this&lt;/a&gt; as a solution. I’m pretty sure this solution doesn’t account for leap years and leap birthdays but our 15 minutes were up 😞.&lt;/p&gt;
+
+&lt;p&gt;What’s not static? That’s right, dynamic! Today’s lecture is on dynamic pages in Rails. Jesse took our &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/tree/master/texas&quot;&gt;static Texas cities&lt;/a&gt; app from yesterday and turned it into an app with dynamic pages. Dynamic pages are way cool. We basically deleted all of our views from the static example and were able to make a single view with changing content. This allows us to generate millions of pages for different products, like Amazon does, with just a handful of views. Dynamic routes are awesome too &lt;code&gt; get &#39;/:post_name&#39; =&amp;gt; &#39;pages#show&#39;, as: :post &lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is day 2 of the week but it is still Thursday so of course we still get a &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-4-lab&quot;&gt;lab&lt;/a&gt; 😀. We basically have to take our &lt;a href=&quot;https://github.com/joeypoon/surf-and-paddle&quot;&gt;week 3 lab&lt;/a&gt; and turn it into a Rails app with dynamic pages.&lt;/p&gt;
+
+&lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
+&lt;p&gt;Our guest speaker for the week is &lt;a href=&quot;https://twitter.com/robyfitzhenry&quot;&gt;Roby Fitzhenry&lt;/a&gt;. Roby is a self-made entrepreneur and designer who speaks with passion. He shared his personal story with us and inspired us to follow our passion. One especially interesting moment to me was when someone asked Roby about front end vs back end pay. Roby’s response was that you should do whatever you enjoy. If you enjoy it, you’ll keep doing it and eventually you’ll become great at it.&lt;/p&gt;
+
+&lt;p&gt;Roby also explained design in a very human way, simply as a narrative. The most important thing is the story that you are telling. I think that as someone who loves banging away at the keyboard to chip away at technical problems, I sometimes forget what the end goal is. That is that I am building products for humans. How I build and design my applications tell a story to my users. How the story is told is just as important as the story itself. &lt;code&gt;rambling.end&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So I actually finished the lab this week early and submitted it Thursday evening. Jesse, being the awesome instructor that he is, added nightmare mode Friday morning and made a point to let me know. You have to love it when an instructor adjusts for his students 😀. Since we’re doing Rails now, I’ll start adding both production and code links for Rails apps that I deploy. Week 4 lab: &lt;a href=&quot;https://surf-and-rails.herokuapp.com/&quot;&gt;production&lt;/a&gt; | &lt;a href=&quot;https://github.com/joeypoon/surf_and_rails&quot;&gt;code&lt;/a&gt;. It’s not really mobile responsive yet but I do plan on adding that in soon.&lt;/p&gt;
+
+&lt;h3 id=&quot;closing-thoughts&quot;&gt;Closing Thoughts&lt;/h3&gt;
+&lt;p&gt;Rails is awesome. Small things like &lt;code&gt;.parameterize&lt;/code&gt; and &lt;code&gt;.pluralize&lt;/code&gt; really make Rails friendly to use. Ruby and Rails might not be the leanest but the ease of use makes it such a joy to program with. In the end, isn’t that what technology is for? To make life easier? It’s exciting to see how far we’ve come in 4 weeks and I definitely can’t wait to see what we’ll be able to produce by the end of 12 weeks. Next week is database stuff, can’t wait!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 31 May 2015 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/week-4-the-iron-yard</link>
+        <guid isPermaLink="true">joeypoon.com/blog/week-4-the-iron-yard</guid>
+        
+        
+      </item>
     
       <item>
         <title>Week 3 The Iron Yard</title>
@@ -445,19 +498,6 @@ end
         <pubDate>Wed, 08 Apr 2015 19:37:46 -0500</pubDate>
         <link>joeypoon.com/blog/working-efficiently</link>
         <guid isPermaLink="true">joeypoon.com/blog/working-efficiently</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Learning Rails</title>
-        <description>&lt;p&gt;&lt;a href=&quot;/blog/img/speed-game-code-2.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-183&quot; src=&quot;/blog/img/speed-game-code-2.png&quot; alt=&quot;joey-poon-whyyy&quot; width=&quot;1300&quot; height=&quot;564&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Back from vacation (&lt;a href=&quot;http://nickydisla.com/spring-break-15/&quot;&gt;Video &lt;/a&gt;if you&#39;re interested) and while I enjoyed every minute of it, I can&#39;t even begin to describe how itchy my fingers are to code.  So with my Rails Engineering course at the &lt;a href=&quot;http://theironyard.com/&quot;&gt;Iron Yard&lt;/a&gt; beginning in May, I recently started learning some Ruby and Rails.  I&#39;m currently working on the &lt;a href=&quot;https://www.railstutorial.org/&quot;&gt;Ruby on Rails Tutorial&lt;/a&gt; and having finished the chapter on static pages, I decided to try deploying my &lt;a href=&quot;https://github.com/joeypoon/speed_game&quot;&gt;speed game&lt;/a&gt; through Heroku.  The result was a mixed bag.  I was pretty excited that it worked.  However, I could only get it to work with internal JS and I certainly don&#39;t want to be deploying apps in the future with the JS exposed like that.  Oddly enough, making the CSS external was simple enough.  Rails is still feeling too magical, better get back to reading.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 30 Mar 2015 18:26:20 -0500</pubDate>
-        <link>joeypoon.com/blog/learning-rails</link>
-        <guid isPermaLink="true">joeypoon.com/blog/learning-rails</guid>
         
         
       </item>
