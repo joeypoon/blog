@@ -7,7 +7,7 @@ author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"
 ---
 
-<a href="http://temp.nickydisla.com/temp/wp-content/uploads/2015/05/hackhou1-e1432449708626.jpeg"><img src="http://temp.nickydisla.com/temp/wp-content/uploads/2015/05/hackhou1-e1432449708626.jpeg" alt="hackhou" class="aligncenter" ></a>
+<img src="{{ site.baseurl }}/img/hackhou.jpeg" alt="houston-hackathon">
 
 <h3>Transformation</h3>
 <p>I started dreaming in code a couple months back but it has recently become the dominant form of dreaming for me. I often find myself waking up to arrays and hashes. Earlier this week, I almost asked my girlfriend for an array of what she wanted for dinner so I could call <span class="lang:ruby decode:true  crayon-inline " >.sample</span>  on it. Every time she tells me she wants a Corgi, <pre>Corgi.new</pre> flashes in my head. I find myself unconsciously trying to figure out how to organize daily things into data. I won't lie, I'm starting to feel a sense of achievement with how nerdy I'm becoming. Just everyday life while attending TIY.</p>
