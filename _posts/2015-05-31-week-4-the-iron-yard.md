@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Week 4 The Iron Yard"
-subtitle:   ""
+subtitle:   "Rails and dynamic pages"
 date:       2015-05-31
 author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Week 2 The Iron Yard and My First Hackathon"
-subtitle:   ""
+subtitle:   "Dreaming in code"
 date:       2015-05-18
 author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"

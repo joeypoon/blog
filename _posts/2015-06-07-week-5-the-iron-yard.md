@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Week 5 The Iron Yard"
-subtitle:   ""
+subtitle:   "Databases, tables, and PostgreSQL"
 date:       2015-06-07
 author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"

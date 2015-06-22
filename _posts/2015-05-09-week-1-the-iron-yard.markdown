@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Week 1 The Iron Yard"
-subtitle:   ""
+subtitle:   "The start of a new adventure"
 date:       2015-05-09
 author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"

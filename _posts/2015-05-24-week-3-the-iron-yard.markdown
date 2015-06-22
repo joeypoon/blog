@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Week 3 The Iron Yard"
-subtitle:   ""
+subtitle:   "Peanut butter and Jekyll"
 date:       2015-05-24
 author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"

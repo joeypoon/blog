@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Week 6 The Iron Yard"
-subtitle:   ""
+subtitle:   "Halfway point"
 date:       2015-06-13
 author:     "Joey F. Poon"
 header-img: "img/home-bg.jpg"
