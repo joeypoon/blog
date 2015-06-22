@@ -5,8 +5,8 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 22 Jun 2015 00:43:39 -0500</pubDate>
-    <lastBuildDate>Mon, 22 Jun 2015 00:43:39 -0500</lastBuildDate>
+    <pubDate>Mon, 22 Jun 2015 00:50:49 -0500</pubDate>
+    <lastBuildDate>Mon, 22 Jun 2015 00:50:49 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -19,7 +19,7 @@
 
 &lt;p&gt;Our first JS lecture starts with a brief history on the interwebs. After history, we start playing around in jsbin. Jesse’s philosophy of learning a new language is to draw parallels to your primary language. Such was our lesson. We would write out how to do something in Ruby and then translate it into JavaScript, each time noting the differences. We covered the basics such as &lt;code&gt;var&lt;/code&gt;, &lt;code&gt;function()&lt;/code&gt;, &lt;code&gt;console.log()&lt;/code&gt;, &lt;code&gt;alert()&lt;/code&gt;, and debugging with the inspector. We also briefly touched on &lt;code&gt;underscore.js&lt;/code&gt; which is pretty awesome because it basically gives us access to Ruby methods.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-31&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is a carbon copy of &lt;a href=&quot;/blog/week-1-the-iron-yard/&quot; target=&quot;\_blank&quot;&gt;day 1&lt;/a&gt; but in JavaScript. My &lt;a href=&quot;&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-31&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is a carbon copy of &lt;a href=&quot;/blog/week-1-the-iron-yard/&quot; target=&quot;\_blank&quot;&gt;day 1&lt;/a&gt; but in JavaScript. My &lt;a href=&quot;http://jsbin.com/zifiyemasu/edit?js,console&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;tuesday&quot;&gt;Tuesday&lt;/h3&gt;
 &lt;p&gt;Uncle (tropical storm)Bill didn’t want us to have class today.
@@ -45,7 +45,7 @@
 * repeat some of the above and modify for un-favoriting
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Of course there was some debugging thrown in but the ability to break problems down into such small pieces is just such an amazing part of coding. Also praise version control. I would be way too scared to make changes to my code without &lt;code&gt;git checkout -b branch_name&lt;/code&gt;. Since I am praising things, &lt;a href=&quot;https://github.com/github/hub&quot; target=&quot;\_blank&quot;&gt;hub&lt;/a&gt; is an awesome addition for git. I’m not entirely happy with the number of features yet but here’s where I’m at currently for my lab: &lt;a href=&quot;https://github.com/joeypoon/staple&quot; target=&quot;\_blank&quot;&gt;site&lt;/a&gt; | &lt;a href=&quot;https://joey-staple.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Of course there was some debugging thrown in but the ability to break problems down into such small pieces is just such an amazing part of coding. Also praise version control. I would be way too scared to make changes to my code without &lt;code&gt;git checkout -b branch_name&lt;/code&gt;. Since I am praising things, &lt;a href=&quot;https://github.com/github/hub&quot; target=&quot;\_blank&quot;&gt;hub&lt;/a&gt; is an awesome addition for git. I’m not entirely happy with the number of features yet but here’s where I’m at currently for my lab: &lt;a href=&quot;https://github.com/joeypoon/staple&quot; target=&quot;\_blank&quot;&gt;code&lt;/a&gt; | &lt;a href=&quot;https://joey-staple.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;site&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
 &lt;p&gt;Our guest for the week is Darren Ansley. Darren comes to us today with an inspiring story of how he started from humble origins and over the years has become an amazing programmer. It is a great reminder that if you stick to your passion relentlessly, you will succeed.&lt;/p&gt;

@@ -14,7 +14,7 @@ Today starts our JavaScript adventures. <a href="https://github.com/tiy-hou-q2-2
 
 Our first JS lecture starts with a brief history on the interwebs. After history, we start playing around in jsbin. Jesse's philosophy of learning a new language is to draw parallels to your primary language. Such was our lesson. We would write out how to do something in Ruby and then translate it into JavaScript, each time noting the differences. We covered the basics such as <code>var</code>, <code>function()</code>, <code>console.log()</code>, <code>alert()</code>, and debugging with the inspector. We also briefly touched on <code>underscore.js</code> which is pretty awesome because it basically gives us access to Ruby methods.
 
-<a href="https://github.com/tiy-hou-q2-2015-rails/day-31" target="\_blank">Homework</a> is a carbon copy of <a href="{{ site.baseurl }}/week-1-the-iron-yard/" target="\_blank">day 1</a> but in JavaScript. My <a href="" target="\_blank">solution</a>.
+<a href="https://github.com/tiy-hou-q2-2015-rails/day-31" target="\_blank">Homework</a> is a carbon copy of <a href="{{ site.baseurl }}/week-1-the-iron-yard/" target="\_blank">day 1</a> but in JavaScript. My <a href="http://jsbin.com/zifiyemasu/edit?js,console" target="\_blank">solution</a>.
 
 ### Tuesday
 Uncle (tropical storm)Bill didn't want us to have class today.
