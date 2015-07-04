@@ -5,9 +5,52 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 28 Jun 2015 18:23:25 -0500</pubDate>
-    <lastBuildDate>Sun, 28 Jun 2015 18:23:25 -0500</lastBuildDate>
+    <pubDate>Sat, 04 Jul 2015 01:45:33 -0500</pubDate>
+    <lastBuildDate>Sat, 04 Jul 2015 01:45:33 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Week 9 The Iron Yard</title>
+        <description>&lt;h3 id=&quot;javascript-is-kind-ofcool&quot;&gt;JavaScript is kind of…cool&lt;/h3&gt;
+&lt;p&gt;Okay, I’m really starting to like JS. Rails is awesome but with the current state of web applications, a full Rails app doesn’t produce the kind of UX that’s needed for a serious product. While I wish this wasn’t the case, at least I can still use Rails to be awesome for the back-end. I actually tried Meteor.js and found it super intuitive and easy to use but the part of me that paid to learn Rails won’t let me go on without Rails. Fortunately, we have front-end frameworks and libraries to supplement our Rails back-end.&lt;/p&gt;
+
+&lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
+&lt;p&gt;This is speculation but it looks like we won’t be getting anymore challenges for remainder of the program. This is end of week 9 and the end of our main lecture topics. Since we didn’t get a challenge today, I imagine we won’t be having anymore.&lt;/p&gt;
+
+&lt;p&gt;Today’s lecture is over the super important topics of ecommerce and mailers. Jesse starts with a brief history of internet payments that leads to Stripe. Jesse then shows us how to integrate Stripe payments using the Payola gem. We are then shown how to utilize the built in Rails mailer to send receipts. It’s super awesome how easy Rails makes things. That’s how technology should be, making things easier.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-41&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is optional but…yeah I still did it. Basically we are to make an app that displays products that you can then fake buy with Stripe. Solution: &lt;a href=&quot;http://joey-store-front.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;Site&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/joeypoon/store_front&quot; target=&quot;\_blank&quot;&gt;Code&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tuesday--wednesday&quot;&gt;Tuesday &amp;amp; Wednesday&lt;/h3&gt;
+&lt;p&gt;So this week is a little different. The next two days actually take place in the commons room because we’re having joint lecture. Jesse and Matt will be creating a web app together. The goal of this joint lecture is to demonstrate some issues you run into working on a distributed project, how to solve them, and best practices.&lt;/p&gt;
+
+&lt;p&gt;The project that Jesse and Matt decided to create is an imgur clone called imgderp. Jesse created the Rails API while Matt developed the front-end with React.js and Backbone.js. This is probably one of my favorite lectures during my time at the Iron Yard. As you know, I have been playing around with different front-end frameworks and libraries. To see someone as experienced as Matt explain and walk us through his thought process on the front-end was tremendously helpful for me. Your mileage may vary, however. I have no doubt that if I didn’t play with React.js just a couple days earlier that I would not have gained as much out of it.&lt;/p&gt;
+
+&lt;p&gt;One of the challenges I had with React.js was routing. Rails makes routing ridiculously easy. Needing to handwrite the logic for routing was a little daunting for me. Matt walked us through the process of routing in Backbone.js and how to proxy the request through the server so that we wouldn’t get CORS errors when connecting to our API. A second challenge I had with React.js was structuring my application in a way that data could flow through parent-child relationships. Witnessing Matt build the front-end of the app from ground up really helped me grasp the structure better.&lt;/p&gt;
+
+&lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
+&lt;p&gt;On the agenda today is a revisit from &lt;a href=&quot;/blog/week-3-the-iron-yard/&quot; target=&quot;\_blank&quot;&gt;JB&lt;/a&gt; to do a TDD coding dojo. Kind of. We ended up doing this instead:
+&lt;a href=&quot;https://twitter.com/JoeyFPoon/status/616675374177615874&quot; target=&quot;\_blank&quot;&gt;&lt;img src=&quot;https://pbs.twimg.com/media/CI7e-mYW8AMLeH_.jpg&quot; /&gt;&lt;/a&gt;
+Just another day at TIY :). Friday is no class for Independence day.&lt;/p&gt;
+
+&lt;h3 id=&quot;other-stuff&quot;&gt;Other stuff&lt;/h3&gt;
+&lt;p&gt;So I’m sure you’ve noticed, we didn’t have lab this week. We were planning on having a distributed systems project between the front and Rails classes but Jesse and Matt made the executive decision that the scope of the project was probably too large and would take too much time. We are instead to work on our final projects. Yep. That’s right, it’s time for final projects. I still don’t know where the last 9 weeks have gone and it is definitely a bittersweet feeling. Jesse did post an &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-9-lab&quot; target=&quot;\_blank&quot;&gt;optional lab&lt;/a&gt; for us which I may work on if I have the time but right now I’m focusing on my final project.&lt;/p&gt;
+
+&lt;p&gt;I am a little scared about the scope of my project. My plan is to develop a mobile app that lets you see and share contact info with those around you. Think meetups and events. It’s entirely possible that two weeks in, I will realize that I’ve dug myself too deep. The Rails part should be pretty simple but creating a mobile app will require a well built front-end wrapped in Cordova or perhaps React native. The basic API and React/Backbone is done already so hopefully the fine-tuning and mobile’fying won’t be too bad. Jesse approved the project so I’m hoping that means that he knows it can be done by demo day.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 04 Jul 2015 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/week-9-the-iron-yard</link>
+        <guid isPermaLink="true">joeypoon.com/blog/week-9-the-iron-yard</guid>
+        
+        
+      </item>
     
       <item>
         <title>Week 8 The Iron Yard</title>
@@ -517,34 +560,6 @@ Today marks our first lab assignment. The difference between a lab assignment an
         <pubDate>Sun, 26 Apr 2015 22:32:24 -0500</pubDate>
         <link>joeypoon.com/blog/demystifying-rails</link>
         <guid isPermaLink="true">joeypoon.com/blog/demystifying-rails</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>My Journey to the Iron Yard</title>
-        <description>&lt;p&gt;&lt;a href=&quot;/blog/img/tiy-austin.jpg&quot;&gt;&lt;img src=&quot;/blog/img/tiy-austin.jpg&quot; alt=&quot;iron-yard&quot; class=&quot;alignnone&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;As May the Fourth approaches (what a wonderful coincidence), I find myself unable to contain my excitement for &lt;a href=&quot;http://theironyard.com/courses/&quot;&gt;the Iron Yard&lt;/a&gt;. So instead of imploding, I have decided to write about it.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-beginning&quot;&gt;The Beginning&lt;/h3&gt;
-&lt;p&gt;Less than two years ago, I was &lt;a href=&quot;/blog/a-new-love/&quot;&gt;studying for law school&lt;/a&gt;. Today, I don’t know where my LSAT practice books are and instead I find myself &lt;a href=&quot;/blog/everyone-should-learn-to-program/&quot;&gt;writing programs for work and for fun&lt;/a&gt;. When I first started learning how to program, I scoured the internet for resources and devoured them. After a while, I felt like my learning had slowed down. I finished &lt;a href=&quot;http://www.codecademy.com/learn&quot;&gt;Codecademy&lt;/a&gt; and some books from Big Nerd Ranch but I still felt lost when I tried to create something from scratch. I began looking into different options.&lt;/p&gt;
-
-&lt;h3&gt;The Fork With One Road&lt;/h3&gt;
-&lt;p&gt;One of the first options that came up was to attend a programming bootcamp. The mere idea of an intensive full-time programming bootcamp excited me. Unfortunately, it was not financially feasible for me at the time so I begrudgingly crossed it off my list of possibilities. I had already finished my Bachelor degree so the next logical step would have been a Master program. My degree was non-technical, however, so the number of pre-reqs I needed to start graduate level courses meant an addition two years on top of the degree length. With this in mind, I resigned myself to getting a second Bachelor. I might as well get a degree if I have to take the pre-reqs right? What was I to do? I ran into what felt like an insurmountable wall just trying to self-learn.&lt;/p&gt;
-
-&lt;h3&gt;Flames Reignited&lt;/h3&gt;
-&lt;p&gt;Time passed and classes started. It would take me a while to get my degree but I didn’t feel like I had any other options. Some things happened and my girlfriend ended up moving in with me. I didn’t think much of it at the time. One day my now routine googling for programming resources led me to an article that talked about different types of education options for aspiring developers. One of the options was of course the programming bootcamp. I followed the link and ended up with a list of programming bootcamps. I glance over some. They were nice and exciting but most of them were in SF and NY which made them far too expensive due to additional living costs. Out of curiosity, I did a control+f for Houston to see if there were any nearby. To my surprise, I found the Iron Yard.&lt;/p&gt;
-
-&lt;h3&gt;The Awesomeness&lt;/h3&gt;
-&lt;p&gt;With TIY being in town, this cut the cost of attendance significantly. This is further compounded by my now reduced living expenses since my girlfriend shared living costs with me. For the first time, programming bootcamp seemed like a possibility. Being the awesome girlfriend that she is, Nicky told me that she would support my decision if I decided to quit my job and attend TIY. I had no more excuses. I emailed Brian to set up a visit and the rest is &lt;a href=&quot;/blog/risky-proposition/&quot;&gt;history&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;Excitement&lt;/h3&gt;
-&lt;p&gt;I thought I was excited when I first realized that I could actually attend TIY, however, I am somehow still getting more excited by the day. I stopped by TIY this past Wednesday for their crash course and I was reminded of why I wanted to go to TIY. Sure you could take your time to learn this stuff at home but I’m just as excited about the atmosphere and the people as I am about the learning. Let the countdown begin!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 19 Apr 2015 13:35:28 -0500</pubDate>
-        <link>joeypoon.com/blog/my-journey-to-the-iron-yard</link>
-        <guid isPermaLink="true">joeypoon.com/blog/my-journey-to-the-iron-yard</guid>
         
         
       </item>
