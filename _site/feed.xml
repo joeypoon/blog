@@ -5,9 +5,54 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 04 Jul 2015 01:45:33 -0500</pubDate>
-    <lastBuildDate>Sat, 04 Jul 2015 01:45:33 -0500</lastBuildDate>
+    <pubDate>Sat, 11 Jul 2015 23:03:15 -0500</pubDate>
+    <lastBuildDate>Sat, 11 Jul 2015 23:03:15 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Week 10 The Iron Yard</title>
+        <description>&lt;h3 id=&quot;the-search-begins&quot;&gt;The Search Begins&lt;/h3&gt;
+&lt;p&gt;With only 2 weeks remaining, job searching is naturally becoming a larger part of day-to-day life. I had my first interviews this week and boy did I screw up. I’m not sure what happened but I completely blanked out at a simple question like ‘describe your rails experience.’ Fortunately this served as a good wake up call as I performed much better subsequently.&lt;/p&gt;
+
+&lt;p&gt;I also had my first whiteboarding experience. It was both fun and terrifying. It’s great in the sense I get to do what I love during an interview and secondly, I am no longer judged by my resume but my actual coding ability. It is terrifying in the fact that you’re put on the spot without your dev tools. I actually blanked out for what felt like an eternity for one of the whiteboard problems. Practice more Ruby before you interview.&lt;/p&gt;
+
+&lt;h3 id=&quot;project-update&quot;&gt;Project Update&lt;/h3&gt;
+&lt;p&gt;Since lectures are over and our remaining time is self-paced final projects, I won’t be going over the days separately. As my project is actually quite large in scope, I’m working in a team of 3. If you’re thinking about attending Iron Yard, I highly recommend doing a team project for your final project as well. My reasoning is that one, you can have a larger and more impressive project. Second, it is great practice for an agile development environment.&lt;/p&gt;
+
+&lt;p&gt;I’m feeling a lot better about our project this week. Last week I still wasn’t sure how far we would get in terms of going mobile. This week, we’ve gotten a lot of our views up and running on mobile and I can definitely see us finishing a demo ready product by July 24.&lt;/p&gt;
+
+&lt;h3 id=&quot;coding-vs-critical-thinking&quot;&gt;Coding vs. Critical Thinking&lt;/h3&gt;
+&lt;p&gt;An interesting dynamic I saw with my back-end is the planning time versus the coding time. This reminds me of an article &lt;a href=&quot;http://blog.texmexconsulting.com/clients-do-not-pay-you-for-the-code/&quot; target=&quot;\_blank&quot;&gt;Jesse wrote about writing 10 lines of code for $1000&lt;/a&gt;. I have data and I know what I want to do with it. Before I can write code to tell the computer what I want it to do with the data, I need to structure the data. How do I break down the relationships? What data do I put in which table? These are questions that I have to whiteboard out and spend a significant time thinking about it. The result? Hours of critical thinking and far less than a hundred lines of code. Coding certainly doesn’t happen the way movies portray.&lt;/p&gt;
+
+&lt;h3 id=&quot;more-rails&quot;&gt;More Rails&lt;/h3&gt;
+&lt;p&gt;Even though I’m taking a Rails course, I’ve talked more about JavaScript than I have about Rails in my last couple of posts. With interviews happening, I’m realizing how much more there is to learn about Rails. This means that I have been doing lots and lots more reading.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;has_many :through&lt;/code&gt; vs. &lt;code&gt;has_and_belongs_to_many&lt;/code&gt;&lt;br /&gt;
+Throughout the course, we’ve basically been fine with &lt;code&gt;belongs_to&lt;/code&gt; and &lt;code&gt;has_many&lt;/code&gt;. Occasionally I’ve had to bust out the &lt;code&gt;has_and_belongs_to_many&lt;/code&gt; but nothing super complicated. Apparently Rails also has a &lt;code&gt;has_many :through&lt;/code&gt; and the like. This allows you to have an intermediate table between relationships.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;dependent: :destroy&lt;/code&gt;&lt;br /&gt;
+I didn’t realize that destroying a model didn’t automatically destroy its dependents, I’m so spoiled. Good thing Rails makes it easy to implement.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;add_index :table, :foreign_key&lt;/code&gt;&lt;br /&gt;
+This one I admit I’m having trouble seeing the value. If I have a relationship between two models using &lt;code&gt;has_many&lt;/code&gt; and &lt;code&gt;belongs_to&lt;/code&gt;, there is already a &lt;code&gt;foreign_key&lt;/code&gt; like &lt;code&gt;user_id&lt;/code&gt; which links the models together. What value does adding an index of that same &lt;code&gt;foreign_key&lt;/code&gt; contribute? I’ll need to dig more into databases for this one.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;scope :name, where(attribute: value)&lt;/code&gt;&lt;br /&gt;
+I love this one. Jesse very briefly showed this to me when he was helping me with one of my projects but I had since forgotten about it. Being able to define a named scope makes your controller so much cleaner. Nothing is sexier than clean code.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;before_save&lt;/code&gt;&lt;br /&gt;
+Callbacks allow you to run code based on the life cycle of an object. How did I not use these before?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-talks&quot;&gt;The Talks&lt;/h3&gt;
+&lt;p&gt;We have two awesome talks this week. Brian gave us a job talk. If you’ve looked at dev job postings, you know how terrible most of them are. Brian shared with us how to interpret the postings into what they’re really looking and how to target your cover letter. Admittedly, I wish this talk took place before I started apply for jobs :sadface:&lt;/p&gt;
+
+&lt;p&gt;Our second equally awesome talk is from Hesam Panahi from Red Labs, UH’s accelerator arm. For my team, Hesam is coming at a perfect time because we’re very heavily considering a startup. To be able to get an inside look at Houston’s accelerators is exciting.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Jul 2015 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/week-10-the-iron-yard</link>
+        <guid isPermaLink="true">joeypoon.com/blog/week-10-the-iron-yard</guid>
+        
+        
+      </item>
     
       <item>
         <title>Week 9 The Iron Yard</title>
@@ -19,14 +64,7 @@
 
 &lt;p&gt;Today’s lecture is over the super important topics of ecommerce and mailers. Jesse starts with a brief history of internet payments that leads to Stripe. Jesse then shows us how to integrate Stripe payments using the Payola gem. We are then shown how to utilize the built in Rails mailer to send receipts. It’s super awesome how easy Rails makes things. That’s how technology should be, making things easier.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-41&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is optional but…yeah I still did it. Basically we are to make an app that displays products that you can then fake buy with Stripe. Solution: &lt;a href=&quot;http://joey-store-front.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;Site&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/joeypoon/store_front&quot; target=&quot;\_blank&quot;&gt;Code&lt;/a&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-41&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is optional but…yeah I still did it. Basically we are to make an app that displays products that you can then fake buy with Stripe. Solution: &lt;a href=&quot;http://joey-store-front.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;Site&lt;/a&gt; | &lt;a href=&quot;https://github.com/joeypoon/store_front&quot; target=&quot;\_blank&quot;&gt;Code&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;tuesday--wednesday&quot;&gt;Tuesday &amp;amp; Wednesday&lt;/h3&gt;
 &lt;p&gt;So this week is a little different. The next two days actually take place in the commons room because we’re having joint lecture. Jesse and Matt will be creating a web app together. The goal of this joint lecture is to demonstrate some issues you run into working on a distributed project, how to solve them, and best practices.&lt;/p&gt;
@@ -38,7 +76,9 @@
 &lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
 &lt;p&gt;On the agenda today is a revisit from &lt;a href=&quot;/blog/week-3-the-iron-yard/&quot; target=&quot;\_blank&quot;&gt;JB&lt;/a&gt; to do a TDD coding dojo. Kind of. We ended up doing this instead:
 &lt;a href=&quot;https://twitter.com/JoeyFPoon/status/616675374177615874&quot; target=&quot;\_blank&quot;&gt;&lt;img src=&quot;https://pbs.twimg.com/media/CI7e-mYW8AMLeH_.jpg&quot; /&gt;&lt;/a&gt;
-Just another day at TIY :). Friday is no class for Independence day.&lt;/p&gt;
+(Note: Based on how Jesse plays Sheriff of Nottingham, there is a high probability that he runs the blackmarket.)&lt;/p&gt;
+
+&lt;p&gt;Just another day at TIY :). Friday is no class for Independence day, happy 4th all!&lt;/p&gt;
 
 &lt;h3 id=&quot;other-stuff&quot;&gt;Other stuff&lt;/h3&gt;
 &lt;p&gt;So I’m sure you’ve noticed, we didn’t have lab this week. We were planning on having a distributed systems project between the front and Rails classes but Jesse and Matt made the executive decision that the scope of the project was probably too large and would take too much time. We are instead to work on our final projects. Yep. That’s right, it’s time for final projects. I still don’t know where the last 9 weeks have gone and it is definitely a bittersweet feeling. Jesse did post an &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-9-lab&quot; target=&quot;\_blank&quot;&gt;optional lab&lt;/a&gt; for us which I may work on if I have the time but right now I’m focusing on my final project.&lt;/p&gt;
@@ -522,44 +562,6 @@ Today marks our first lab assignment. The difference between a lab assignment an
         <pubDate>Sat, 09 May 2015 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/week-1-the-iron-yard</link>
         <guid isPermaLink="true">joeypoon.com/blog/week-1-the-iron-yard</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Demystifying Rails</title>
-        <description>&lt;p&gt;It’s been a busy week at work. I mean, look at how sad this &lt;a href=&quot;https://github.com/joeypoon&quot;&gt;past week&lt;/a&gt; was. Fortunately, I was able to get my code on this weekend. I took a slight detour from Rails previously to brush up on my Ruby and am now back at Rails. It is so much easier to understand Rails when you know some Ruby. Things are definitely sticking better this time around. Some awesome things I was able to learn this weekend:&lt;/p&gt;
-
-&lt;h3&gt;Sass&lt;/h3&gt;
-&lt;p&gt;Okay, this isn’t specifically Rails but it’s still awesome. Syntactically awesome stylesheets could not be a more appropriate name. Being so use to nesting and variables, it definitely felt like hassle at times trying to write plain css. Yay for Sass!&lt;/p&gt;
-
-&lt;h3&gt;Partials&lt;/h3&gt;
-&lt;p&gt;There is just something so satisfying about breaking down chunky looking code into smaller chunks. Partials are welcome in my code any day. Hopefully I can commit another naming convention to memory (chanting: _partial _partial _partial).&lt;/p&gt;
-
-&lt;h3&gt;Paths&lt;/h3&gt;
-&lt;pre&gt;get &#39;some_page&#39; =&amp;gt; &#39;controller#action&#39;&lt;/pre&gt;
-&lt;p&gt;I’ve been wondering for a while how to customize urls so learning about paths in Rails was happy times.&lt;/p&gt;
-
-&lt;h3&gt;Asset Pipeline&lt;/h3&gt;
-&lt;pre&gt;rails new my_app&lt;/pre&gt;
-&lt;p&gt;creates so many things that understanding where things were took a while. Learning about the asset pipeline was definitely a relief. Having the manifest include everything in the directory is so convenient.&lt;/p&gt;
-
-&lt;h3&gt;Tests&lt;/h3&gt;
-&lt;p&gt;I have been trying to write &lt;a href=&quot;/blog/on-the-road-to-testing/&quot;&gt;my own tests&lt;/a&gt; and doing a &lt;a href=&quot;https://github.com/joeypoon/Summer_FA_Calculator&quot;&gt;terrible job&lt;/a&gt;. Rails makes testing so much easier. I’m just starting to grasp the amazing things I can do with&lt;/p&gt;
-&lt;pre&gt;rake test&lt;/pre&gt;
-&lt;p&gt;but I definitely feel like I’m getting closer to TDD. Thank you&lt;/p&gt;
-&lt;pre&gt;validates&lt;/pre&gt;
-&lt;p&gt;and&lt;/p&gt;
-&lt;pre&gt;assert&lt;/pre&gt;
-
-&lt;h3&gt;Regex&lt;/h3&gt;
-&lt;p&gt;Okay, I honestly still don’t get regex. I’ve had to use regex in a couple of solutions before but I was able to find a suitable answer online so I didn’t bother learning how to write one on my own. I’m going to do it this time. I promise!&lt;/p&gt;
-
-&lt;p&gt;What a great weekend :).&lt;/p&gt;
-</description>
-        <pubDate>Sun, 26 Apr 2015 22:32:24 -0500</pubDate>
-        <link>joeypoon.com/blog/demystifying-rails</link>
-        <guid isPermaLink="true">joeypoon.com/blog/demystifying-rails</guid>
         
         
       </item>

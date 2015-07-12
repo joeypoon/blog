@@ -14,7 +14,7 @@ This is speculation but it looks like we won't be getting anymore challenges for
 
 Today's lecture is over the super important topics of ecommerce and mailers. Jesse starts with a brief history of internet payments that leads to Stripe. Jesse then shows us how to integrate Stripe payments using the Payola gem. We are then shown how to utilize the built in Rails mailer to send receipts. It's super awesome how easy Rails makes things. That's how technology should be, making things easier.
 
-<a href="https://github.com/tiy-hou-q2-2015-rails/day-41" target="\_blank">Homework</a> is optional but...yeah I still did it. Basically we are to make an app that displays products that you can then fake buy with Stripe. Solution: <a href="http://joey-store-front.herokuapp.com/" target="\_blank">Site</a> | <a href="https://github.com/joeypoon/store_front" target="\_blank">Code</a>.
+<a href="https://github.com/tiy-hou-q2-2015-rails/day-41" target="\_blank">Homework</a> is optional but...yeah I still did it. Basically we are to make an app that displays products that you can then fake buy with Stripe. Solution: <a href="http://joey-store-front.herokuapp.com/" target="\_blank">Site</a> \| <a href="https://github.com/joeypoon/store_front" target="\_blank">Code</a>.
 
 ### Tuesday & Wednesday
 So this week is a little different. The next two days actually take place in the commons room because we're having joint lecture. Jesse and Matt will be creating a web app together. The goal of this joint lecture is to demonstrate some issues you run into working on a distributed project, how to solve them, and best practices.
@@ -26,7 +26,9 @@ One of the challenges I had with React.js was routing. Rails makes routing ridic
 ### Thursday
 On the agenda today is a revisit from <a href="{{ site.baseurl }}/week-3-the-iron-yard/" target="\_blank">JB</a> to do a TDD coding dojo. Kind of. We ended up doing this instead:
 <a href="https://twitter.com/JoeyFPoon/status/616675374177615874" target="\_blank"><img src="https://pbs.twimg.com/media/CI7e-mYW8AMLeH_.jpg" /></a>
-Just another day at TIY :). Friday is no class for Independence day.
+(Note: Based on how Jesse plays Sheriff of Nottingham, there is a high probability that he runs the blackmarket.)
+
+Just another day at TIY :). Friday is no class for Independence day, happy 4th all!
 
 ### Other stuff
 So I'm sure you've noticed, we didn't have lab this week. We were planning on having a distributed systems project between the front and Rails classes but Jesse and Matt made the executive decision that the scope of the project was probably too large and would take too much time. We are instead to work on our final projects. Yep. That's right, it's time for final projects. I still don't know where the last 9 weeks have gone and it is definitely a bittersweet feeling. Jesse did post an <a href="https://github.com/tiy-hou-q2-2015-rails/week-9-lab" target="\_blank">optional lab</a> for us which I may work on if I have the time but right now I'm focusing on my final project.

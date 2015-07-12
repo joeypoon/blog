@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Programmer's Adventures">
+
+    <title>Blog | Joey F. Poon</title>
+    <!-- <title>Week 10 The Iron Yard - Blog | Joey F. Poon</title> -->
+
+    <link rel="canonical" href="joeypoon.com/blog/week-10-the-iron-yard">
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/blog/css/clean-blog.min.css">
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://joeypoon.com" target="_blank">Joey F. Poon</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/blog/">Home</a>
+                </li>
+                <li>
+                    <a href="http://joeypoon.com/#projects" target="_blank">Portfolio</a>
+                </li>
+                <li>
+                    <a href="http://joeypoon.com/#contact" target="_blank">Contact</a>
+                </li>
+                <!--  -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Week 10 The Iron Yard</h1>
+                    
+                    <h2 class="subheading">The search and more Rails</h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on July 12, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h3 id="the-search-begins">The Search Begins</h3>
+<p>With only 2 weeks remaining, job searching is naturally becoming a larger part of day-to-day life. I had my first interviews this week and boy did I screw up. I’m not sure what happened but I completely blanked out at a simple question like ‘describe your rails experience.’ Fortunately this served as a good wake up call as I performed much better subsequently.</p>
+
+<p>I also had my first whiteboarding experience. It was both fun and terrifying. It’s great in the sense I get to do what I love during an interview and secondly, I am no longer judged by my resume but my actual coding ability. It is terrifying in the fact that you’re put on the spot without your dev tools. I actually blanked out for what felt like an eternity for one of the whiteboard problems. Practice more Ruby before you interview.</p>
+
+<h3 id="project-update">Project Update</h3>
+<p>Since lectures are over and our remaining time is self-paced final projects, I won’t be going over the days separately. As my project is actually quite large in scope, I’m working in a team of 3. If you’re thinking about attending Iron Yard, I highly recommend doing a team project for your final project as well. My reasoning is that one, you can have a larger and more impressive project. Second, it is great practice for an agile development environment.</p>
+
+<p>I’m feeling a lot better about our project this week. Last week I still wasn’t sure how far we would get in terms of going mobile. This week, we’ve gotten a lot of our views up and running on mobile and I can definitely see us finishing a demo ready product by July 24.</p>
+
+<h3 id="coding-vs-critical-thinking">Coding vs. Critical Thinking</h3>
+<p>An interesting dynamic I saw with my back-end is the planning time versus the coding time. This reminds me of an article <a href="http://blog.texmexconsulting.com/clients-do-not-pay-you-for-the-code/" target="\_blank">Jesse wrote about writing 10 lines of code for $1000</a>. I have data and I know what I want to do with it. Before I can write code to tell the computer what I want it to do with the data, I need to structure the data. How do I break down the relationships? What data do I put in which table? These are questions that I have to whiteboard out and spend a significant time thinking about it. The result? Hours of critical thinking and far less than a hundred lines of code. Coding certainly doesn’t happen the way movies portray.</p>
+
+<h3 id="more-rails">More Rails</h3>
+<p>Even though I’m taking a Rails course, I’ve talked more about JavaScript than I have about Rails in my last couple of posts. With interviews happening, I’m realizing how much more there is to learn about Rails. This means that I have been doing lots and lots more reading.</p>
+
+<p><code>has_many :through</code> vs. <code>has_and_belongs_to_many</code><br />
+Throughout the course, we’ve basically been fine with <code>belongs_to</code> and <code>has_many</code>. Occasionally I’ve had to bust out the <code>has_and_belongs_to_many</code> but nothing super complicated. Apparently Rails also has a <code>has_many :through</code> and the like. This allows you to have an intermediate table between relationships.</p>
+
+<p><code>dependent: :destroy</code><br />
+I didn’t realize that destroying a model didn’t automatically destroy its dependents, I’m so spoiled. Good thing Rails makes it easy to implement.</p>
+
+<p><code>add_index :table, :foreign_key</code><br />
+This one I admit I’m having trouble seeing the value. If I have a relationship between two models using <code>has_many</code> and <code>belongs_to</code>, there is already a <code>foreign_key</code> like <code>user_id</code> which links the models together. What value does adding an index of that same <code>foreign_key</code> contribute? I’ll need to dig more into databases for this one.</p>
+
+<p><code>scope :name, where(attribute: value)</code><br />
+I love this one. Jesse very briefly showed this to me when he was helping me with one of my projects but I had since forgotten about it. Being able to define a named scope makes your controller so much cleaner. Nothing is sexier than clean code.</p>
+
+<p><code>before_save</code><br />
+Callbacks allow you to run code based on the life cycle of an object. How did I not use these before?</p>
+
+<h3 id="the-talks">The Talks</h3>
+<p>We have two awesome talks this week. Brian gave us a job talk. If you’ve looked at dev job postings, you know how terrible most of them are. Brian shared with us how to interpret the postings into what they’re really looking and how to target your cover letter. Admittedly, I wish this talk took place before I started apply for jobs :sadface:</p>
+
+<p>Our second equally awesome talk is from Hesam Panahi from Red Labs, UH’s accelerator arm. For my team, Hesam is coming at a perfect time because we’re very heavily considering a startup. To be able to get an inside look at Houston’s accelerators is exciting.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/week-9-the-iron-yard" data-toggle="tooltip" data-placement="top" title="Week 9 The Iron Yard">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                  
+                  <li>
+                      <a href="https://github.com/joeypoon" target="_blank">
+                          <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                          </span>
+                      </a>
+                  </li>
+                  
+                    
+                    <li>
+                        <a href="https://twitter.com/joeyfpoon" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://www.linkedin.com/in/joeypoon" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; <a href="http://joeypoon.com" target="_blank">Joey F. Poon</a> 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
