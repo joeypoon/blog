@@ -5,14 +5,14 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 18 Jul 2015 21:56:15 -0500</pubDate>
-    <lastBuildDate>Sat, 18 Jul 2015 21:56:15 -0500</lastBuildDate>
+    <pubDate>Sun, 19 Jul 2015 12:40:18 -0500</pubDate>
+    <lastBuildDate>Sun, 19 Jul 2015 12:40:18 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>Week 11 The Iron Yard</title>
         <description>&lt;h3 id=&quot;impending-end-and-beginning&quot;&gt;Impending End and Beginning&lt;/h3&gt;
-&lt;p&gt;Time passes far too fast. I honestly can’t believe that my time as an Iron Yard student is coming to an end. It feels like just yesterday that I started learning Ruby. Today, building and deploying full stack Rails apps is an everyday fact. Thanks to the Jesse and everyone at the Iron Yard, I can now call myself a software engineer. That’s right, this past week I received and accepted an offer to be a full-time software engineer. It has been a long journey from my first line of html over a year and a half ago and on Monday I will start a new journey. I look forward to what I will learn in the next year and a half.&lt;/p&gt;
+&lt;p&gt;Time passes far too fast. I honestly can’t believe that my time as an Iron Yard student is coming to an end. It feels like just yesterday that I started learning Ruby. Today, building and deploying full stack Rails apps is an everyday fact. Thanks to the Jesse and everyone at the Iron Yard, I can now call myself a software engineer. That’s right, this past week I received and accepted an offer to be a full-time software engineer. It has been a long journey from my first line of html over a year and a half ago. I look forward to what I will learn in the next year and a half.&lt;/p&gt;
 
 &lt;h3 id=&quot;project-update&quot;&gt;Project Update&lt;/h3&gt;
 &lt;p&gt;So much sadness and happiness but we’re not quite there yet. With my start date on Monday, we have one less week to finish our final project. Fortunately we made some breakthroughs this week. Look at this beauty:
@@ -20,10 +20,17 @@
 
 &lt;p&gt;Okay, so it still needs tons of styling but most of the features essential for minimum viable product are up and running. An interesting challenge I faced this week is the restructuring of the data models. It was a ton of headache and fun because the most complicated data relationships I’ve had to deal with so far is probably my &lt;a href=&quot;https://joey-staple.herokuapp.com/login&quot; target=&quot;\_blank&quot;&gt;Staple project&lt;/a&gt; from &lt;a href=&quot;/blog/week-7-the-iron-yard&quot; target=&quot;\_blank&quot;&gt;week 7&lt;/a&gt;. Category tags and user follows are easy with gems.&lt;/p&gt;
 
-&lt;p&gt;This is the first time I had to create multiple relationships by hand. The hard part isn’t actually writing them, however. The hard part is figuring out the best way to structure your models. Users have contact information and locations that they need to share to other users. This is only complicated by the need for&lt;/p&gt;
+&lt;p&gt;This is the first time I had to create so many relationships by hand. The hard part isn’t actually writing them, however. The hard part is figuring out the best way to structure your models. Users have contact information and locations that they need to share to other users. Users also need contact lists to store other users and they need to be able to choose what information to share on each share. At one point I tried putting everything in a separate model and it got messy fast. I have since found a happy medium but I still can’t shake the feeling that my tables have too many columns that should be their own tables. Hopefully some time later I can look back at the models and laugh at how silly it is.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-talks&quot;&gt;The Talks&lt;/h3&gt;
+&lt;p&gt;Our speaker this week is a &lt;a href=&quot;/blog/week-2-the-iron-yard-and-my-first-hackathon&quot; target=&quot;\_blank&quot;&gt;revisit&lt;/a&gt; from Daniel @ Stackwave. Daniel’s talk is a deeper look into SQL databases. Daniel went over the basic mathematical premise that powers SQL dbs. He also very succulently explained how certain SQL functions like table joins work. For me, the biggest ohhhhh moment is when he explained entity integrity and referential integrity. I had previously thought that uids and foreign keys were the same thing. This made it difficult to understand the point of something like add_index in Rails. I love listening to smart people.&lt;/p&gt;
+
+&lt;p&gt;My team and I also had the chance to meet with Hesam &lt;a href=&quot;/blog/week-10-the-iron-yard&quot; target=&quot;\_blank&quot;&gt;again&lt;/a&gt; for coffee. We arranged a meet time when we met him last week to get some tips on next steps and focus points for our project if we are to make it commercial. We have been so focused on getting a working product that we completely forgot about some important logistics. Things like time commitments from each member after Iron Yard, equity, and surveying users.&lt;/p&gt;
+
+&lt;p&gt;I believe that Brian also gave a cover letter talk but I wasn’t able to make that one :sadface:.&lt;/p&gt;
 
 &lt;h3 id=&quot;other-stuff&quot;&gt;Other Stuff&lt;/h3&gt;
-&lt;p&gt;Since I start on Monday, I won’t be able to attend Iron Yard for the final week. I plan on being there for demo day and will be fine-tuning our final project throughout the evenings.&lt;/p&gt;
+&lt;p&gt;This upcoming week will be my first week in my new career and demo day. Expect exciting things :).&lt;/p&gt;
 </description>
         <pubDate>Sun, 19 Jul 2015 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/week-11-the-iron-yard</link>
