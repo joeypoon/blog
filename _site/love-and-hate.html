@@ -9,9 +9,9 @@
     <meta name="description" content="A Programmer's Adventures">
 
     <title>Blog | Joey F. Poon</title>
-    <!-- <title>Blog | Joey F. Poon</title> -->
+    <!-- <title>Love and Hate - Blog | Joey F. Poon</title> -->
 
-    <link rel="canonical" href="joeypoon.com/blog/page4/">
+    <link rel="canonical" href="joeypoon.com/blog/love-and-hate">
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
     <link rel="stylesheet" href="/blog/css/clean-blog.min.css">
     <link rel="stylesheet" href="/blog/css/syntax.css">
@@ -66,146 +66,77 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Joey F. Poon</h1>
-                    <!-- <h1>Blog | Joey F. Poon</h1> -->
-                    <hr class="small">
-                    <span class="subheading">A Programmer's Adventures</span>
-                    <ul class="list-inline text-center" style="font-size:1.5em;">
-                      
-                      <li>
-                          <a href="https://github.com/joeypoon" target="_blank">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      
-                        
-                        <li>
-                            <a href="https://twitter.com/joeyfpoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="https://www.linkedin.com/in/joeypoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
+                <div class="post-heading">
+                    <h1>Love and Hate</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on February 13, 2015</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/blog/on-the-road-to-testing">
-        <h2 class="post-title">            On The Road To Testing
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 14, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/blog/refactoring-complete">
-        <h2 class="post-title">            Refactoring Complete
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 11, 2015</p>
-</div>
-<hr>
+				<p>Programming is such a love and hate relationship.  When I create a solution to a problem that works, it is the most amazing feeling in the world.  On the other hand, when I spend days trying to figure out what's wrong with my code I just want to rip someone's hair out (No, not my own, I like having hair).  Recently I was trying to create a solution to check if a sudoku answer is correct.  I decided to check each row and column independently and came up with this for my column checker:</p>
 
-<div class="post-preview">
-    <a href="/blog/everyone-should-learn-to-program">
-        <h2 class="post-title">            Everyone Should Learn To Program
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 9, 2015</p>
-</div>
-<hr>
+<p><img class="alignnone" src="/blog/img/sudoku_solution.png" alt="joey poon sudoku code" /></p>
 
-<div class="post-preview">
-    <a href="/blog/working-efficiently">
-        <h2 class="post-title">            Working Efficiently
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 8, 2015</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/learning-rails">
-        <h2 class="post-title">            Learning Rails
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on March 30, 2015</p>
-</div>
-<hr>
+<p>I spent an undisclosed (It's too embarrassing) amount of time writing and rewriting this function only to continuously come up with a near exact duplicate.  Then it hit me.  I forgot to reset my j index after each loop.  I crossed my fingers and prayed as I tested my solution.  I spent the rest of the day being bipolar with bouts of joy countered with equal bouts of shame.  I love how you make me feel programming.  No, I hate you.  Just kidding, I'm sorry programming.  Please be my Valentine.</p>
+<pre>
+     /-_-\
+    /  /  \
+  /  /    \
+  \  \    /
+   \__\__/
+      \\
+      -\\    ____
+        \\  /   /
+  ____   \\/___/
+  \   \ -//
+   \___\//-
+      -//
+       \\
+       //
+      //-
+    -//
+    //
+    \\
+     \\
+ </pre>
+<p>(Flower from <a href="http://www.asciiworld.com/index.html" target="_blank">http://www.asciiworld.com/index.html</a>)</p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/blog/page3">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/blog/page5">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/a-new-love" data-toggle="tooltip" data-placement="top" title="A New Love">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/risky-proposition" data-toggle="tooltip" data-placement="top" title="Risky Propostion">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

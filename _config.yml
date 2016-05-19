@@ -10,6 +10,7 @@ github_username:  joeypoon
 linkedin_username: joeypoon
 
 # Build settings
+gems: [jekyll-paginate]
 markdown: kramdown
 highlighter: pygments
 permalink: :title

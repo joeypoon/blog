@@ -9,9 +9,9 @@
     <meta name="description" content="A Programmer's Adventures">
 
     <title>Blog | Joey F. Poon</title>
-    <!-- <title>Blog | Joey F. Poon</title> -->
+    <!-- <title>Understanding the JS ecosystem as a Rubyist (Part 1) - Blog | Joey F. Poon</title> -->
 
-    <link rel="canonical" href="joeypoon.com/blog/page4/">
+    <link rel="canonical" href="joeypoon.com/blog/understanding-the-JS-ecosystem">
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
     <link rel="stylesheet" href="/blog/css/clean-blog.min.css">
     <link rel="stylesheet" href="/blog/css/syntax.css">
@@ -66,146 +66,68 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Joey F. Poon</h1>
-                    <!-- <h1>Blog | Joey F. Poon</h1> -->
-                    <hr class="small">
-                    <span class="subheading">A Programmer's Adventures</span>
-                    <ul class="list-inline text-center" style="font-size:1.5em;">
-                      
-                      <li>
-                          <a href="https://github.com/joeypoon" target="_blank">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      
-                        
-                        <li>
-                            <a href="https://twitter.com/joeyfpoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="https://www.linkedin.com/in/joeypoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
+                <div class="post-heading">
+                    <h1>Understanding the JS ecosystem as a Rubyist (Part 1)</h1>
+                    
+                    <h2 class="subheading">npm</h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on May 19, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/blog/on-the-road-to-testing">
-        <h2 class="post-title">            On The Road To Testing
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 14, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/blog/refactoring-complete">
-        <h2 class="post-title">            Refactoring Complete
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 11, 2015</p>
-</div>
-<hr>
+				<h3 id="these-are-my-confessions">These are my confessions</h3>
+<p>I have a confession. I have been cheating when it comes to React. I have just been throwing it into my Rails projects. While this works for most of my use cases, it really has just been an excuse to not learn the front-end ecosystem. It’s scary. There are so many words being thrown around when it comes to JS that it can get a little intimidating. Well, I finally sat down and learned what I really need for just the basics.</p>
 
-<div class="post-preview">
-    <a href="/blog/everyone-should-learn-to-program">
-        <h2 class="post-title">            Everyone Should Learn To Program
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 9, 2015</p>
-</div>
-<hr>
+<h3 id="getting-started-with-npm">Getting started with npm</h3>
+<p>To get started, the first thing you need is npm. npm stands for <strong>N</strong>ode <strong>P</strong>ackage <strong>M</strong>anager and is used for installing JS packages or modules (package and module can be used interchangeably). Packages are like gems. So npm is basically a gem manager. Unlike gems, you have to first initialize your project for npm with <code>$ npm init</code>. This will create a package.json file which keeps track of the packages you installed in this project. This way, when someone else clones your project, their npm knows what packages to install to make the project run.</p>
 
-<div class="post-preview">
-    <a href="/blog/working-efficiently">
-        <h2 class="post-title">            Working Efficiently
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 8, 2015</p>
-</div>
-<hr>
+<h3 id="installing-packages">Installing Packages</h3>
+<p>After you initialize your project you can install packages using <code>$ npm install packageName</code>. What this does is install the package to a directory in your project root called node_modules (You should add this to your .gitignore). In addition, if you add the –save flag <code>$ npm install packageName --save</code>, it will automatically add the package to your package.json file.</p>
 
-<div class="post-preview">
-    <a href="/blog/learning-rails">
-        <h2 class="post-title">            Learning Rails
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on March 30, 2015</p>
-</div>
-<hr>
+<h3 id="global-install">Global install</h3>
+<p>Unlike <code>$ gem install gemName</code> which is a global install that you can access anywhere, npm install is a local install. You can only use the package in the directory you installed it. If needed, you can add the optional -g flag to save a package globally <code>$ npm install -g packageName</code>.</p>
+
+<h3 id="scripts">Scripts</h3>
+<p>In your package.json, you can add npm scripts. These are basically terminal aliases. You can run them using <code>$ npm run scriptName</code>. An example use case would be for tests <code>$ npm run tests</code>.
+<code>
+// projectRoot/package.json
+{
+  "scripts": {
+    "scriptName": "some terminal command",
+  }
+}
+</code></p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/blog/page3">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/blog/page5">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/life-after-the-iron-yard" data-toggle="tooltip" data-placement="top" title="Life After The Iron Yard: Starting a New Career">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
