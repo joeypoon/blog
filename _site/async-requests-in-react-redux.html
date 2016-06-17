@@ -9,9 +9,9 @@
     <meta name="description" content="A Programmer's Adventures">
 
     <title>Blog | Joey F. Poon</title>
-    <!-- <title>Blog | Joey F. Poon</title> -->
+    <!-- <title>Async requests in React + Redux - Blog | Joey F. Poon</title> -->
 
-    <link rel="canonical" href="joeypoon.com/blog/page4/">
+    <link rel="canonical" href="joeypoon.com/blog/async-requests-in-react-redux">
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
     <link rel="stylesheet" href="/blog/css/clean-blog.min.css">
     <link rel="stylesheet" href="/blog/css/syntax.css">
@@ -66,146 +66,100 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Joey F. Poon</h1>
-                    <!-- <h1>Blog | Joey F. Poon</h1> -->
-                    <hr class="small">
-                    <span class="subheading">A Programmer's Adventures</span>
-                    <ul class="list-inline text-center" style="font-size:1.5em;">
-                      
-                      <li>
-                          <a href="https://github.com/joeypoon" target="_blank">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      
-                        
-                        <li>
-                            <a href="https://twitter.com/joeyfpoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="https://www.linkedin.com/in/joeypoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
+                <div class="post-heading">
+                    <h1>Async requests in React + Redux</h1>
+                    
+                    <h2 class="subheading">Remote action middleware</h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on June 16, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/blog/my-journey-to-the-iron-yard.html">
-        <h2 class="post-title">            My Journey to the Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 19, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/blog/on-the-road-to-testing.html">
-        <h2 class="post-title">            On The Road To Testing
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 14, 2015</p>
-</div>
-<hr>
+				<p>So recently I had the pleasure of integrating React + Redux into an Angular/Rails project at work and I needed to come up with a good way to organize async requests. For some reason I neglected to google at the time to see that there were options like redux-thunk but I’m kind of happy with the result. So without further ado:</p>
 
-<div class="post-preview">
-    <a href="/blog/refactoring-complete.html">
-        <h2 class="post-title">            Refactoring Complete
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 11, 2015</p>
-</div>
-<hr>
+<p>Just a regular request.</p>
 
-<div class="post-preview">
-    <a href="/blog/everyone-should-learn-to-program.html">
-        <h2 class="post-title">            Everyone Should Learn To Program
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 9, 2015</p>
-</div>
-<hr>
+<pre><code class="language-javascript">// utils/my_util.js
+import fetch from 'isomorphic-fetch'
 
-<div class="post-preview">
-    <a href="/blog/working-efficiently.html">
-        <h2 class="post-title">            Working Efficiently
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on April 8, 2015</p>
-</div>
-<hr>
+export default function myUtil () {
+  fetch(‘/my_resource’)
+    .then(data =&gt; //dispatch to store with new data)
+}
+</code></pre>
+
+<p>Include the request and request params in the action.</p>
+
+<pre><code class="language-javascript">// action_creators/my_action.js
+import myUtil from '../utils/my_util'
+
+export default function myAction (myParam, myParam2) {
+  return {
+    type: 'MY_ACTION',
+    meta: {
+      remote: myUtil,
+      remoteParams: [myParam, myParam2]
+    }
+  }
+}
+</code></pre>
+
+<p>Make request with the params if there is a request in the action.</p>
+
+<pre><code class="language-javascript">// remote_action_middleware.js
+export default store =&gt; next =&gt; action =&gt; {
+  if (action.meta &amp;&amp; action.meta.remote) {
+    action.meta.remote.apply(this, action.meta.remoteParams || [])
+  }
+  return next(action);
+}
+</code></pre>
+
+<p>Hook the remote action middleware into the store.</p>
+
+<pre><code class="language-javascript">// store.js
+import remoteActionMiddleWare from './remote_action_middleware'
+import { createStore, applyMiddleware } from 'redux'
+import reducer from './reducer'
+
+const createStoreWithMiddleware = applyMiddleware(
+  remoteActionMiddleware
+)(createStore)
+export const store = createStoreWithMiddleware(reducer)
+</code></pre>
+
+<p>So basically anytime an action with a remote is created, the async request will automatically be called in the middleware.</p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/blog/page3">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/blog/page5">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/understanding-the-JS-ecosystem.html" data-toggle="tooltip" data-placement="top" title="Understanding the JS ecosystem as a Rubyist (Part 1)">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

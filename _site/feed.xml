@@ -5,9 +5,73 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 19 May 2016 01:17:55 -0500</pubDate>
-    <lastBuildDate>Thu, 19 May 2016 01:17:55 -0500</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Thu, 16 Jun 2016 12:38:06 -0500</pubDate>
+    <lastBuildDate>Thu, 16 Jun 2016 12:38:06 -0500</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Async requests in React + Redux</title>
+        <description>&lt;p&gt;So recently I had the pleasure of integrating React + Redux into an Angular/Rails project at work and I needed to come up with a good way to organize async requests. For some reason I neglected to google at the time to see that there were options like redux-thunk but I’m kind of happy with the result. So without further ado:&lt;/p&gt;
+
+&lt;p&gt;Just a regular request.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// utils/my_util.js
+import fetch from &#39;isomorphic-fetch&#39;
+
+export default function myUtil () {
+  fetch(‘/my_resource’)
+    .then(data =&amp;gt; //dispatch to store with new data)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Include the request and request params in the action.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// action_creators/my_action.js
+import myUtil from &#39;../utils/my_util&#39;
+
+export default function myAction (myParam, myParam2) {
+  return {
+    type: &#39;MY_ACTION&#39;,
+    meta: {
+      remote: myUtil,
+      remoteParams: [myParam, myParam2]
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make request with the params if there is a request in the action.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// remote_action_middleware.js
+export default store =&amp;gt; next =&amp;gt; action =&amp;gt; {
+  if (action.meta &amp;amp;&amp;amp; action.meta.remote) {
+    action.meta.remote.apply(this, action.meta.remoteParams || [])
+  }
+  return next(action);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hook the remote action middleware into the store.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// store.js
+import remoteActionMiddleWare from &#39;./remote_action_middleware&#39;
+import { createStore, applyMiddleware } from &#39;redux&#39;
+import reducer from &#39;./reducer&#39;
+
+const createStoreWithMiddleware = applyMiddleware(
+  remoteActionMiddleware
+)(createStore)
+export const store = createStoreWithMiddleware(reducer)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So basically anytime an action with a remote is created, the async request will automatically be called in the middleware.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 16 Jun 2016 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/async-requests-in-react-redux</link>
+        <guid isPermaLink="true">joeypoon.com/blog/async-requests-in-react-redux</guid>
+        
+        
+      </item>
     
       <item>
         <title>Understanding the JS ecosystem as a Rubyist (Part 1)</title>
@@ -24,15 +88,17 @@
 &lt;p&gt;Unlike &lt;code&gt;$ gem install gemName&lt;/code&gt; which is a global install that you can access anywhere, npm install is a local install. You can only use the package in the directory you installed it. If needed, you can add the optional -g flag to save a package globally &lt;code&gt;$ npm install -g packageName&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;scripts&quot;&gt;Scripts&lt;/h3&gt;
-&lt;p&gt;In your package.json, you can add npm scripts. These are basically terminal aliases. You can run them using &lt;code&gt;$ npm run scriptName&lt;/code&gt;. An example use case would be for tests &lt;code&gt;$ npm run tests&lt;/code&gt;.
-&lt;code&gt;
-// projectRoot/package.json
-{
-  &quot;scripts&quot;: {
-    &quot;scriptName&quot;: &quot;some terminal command&quot;,
-  }
+&lt;p&gt;In your package.json, you can add npm scripts. These are basically terminal aliases. You can run them using &lt;code&gt;$ npm run scriptName&lt;/code&gt;. An example use case would be for tests &lt;code&gt;$ npm run tests&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// projectRoot/package.json  
+{  
+  &quot;scripts&quot;: {  
+    &quot;scriptName&quot;: &quot;some terminal command&quot;
+  }  
 }
-&lt;/code&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It’s now 1:20 AM so I am going to call it a night here. Stay tuned for part 2!&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 May 2016 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/understanding-the-JS-ecosystem</link>
@@ -240,7 +306,7 @@ DELETE /posts/:id deletes a post
 
 &lt;p&gt;Matt (Our Houston front-end instructor) gave me a hand and used some expert JS debugging skills to give me a solution but as I continued trying to use Ember, I realized that the session info was not persisting between page reloads. I love the idea of Ember, but I found the docs to be quite outdated. To be fair, I was probably a little too confident with my learning ability to try to learn Ember while our resident Ember.js expert (Jesse) was out. I’m sure if I were more experienced that I could figure it out but there was no way I could finish my lab before the end of the weekend at the pace I was going. And so I made the decision to put Ember on hold and at the advice of Matt, try &lt;code&gt;React.js&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The first thing I can say about React.js is that it has some pretty nice docs. It took me about a day but I was able to implement a basic version of the lab in React. One of the key ideas of React is the use of components. Components are basically custom made HTML elements which enjoys some custom implementations. For example, I can make a &lt;postform&gt; component and reuse it. I think of it as I think of Rails partials. The cool thing is that components are a thing in Ember too and I do plan on re-visting Ember again next week. Another key idea of React is that components should be structured in a way that data flows in a linear fashion. Basically, data should only be accessible within parent-child relationships. This was a little tough for me and I ended up cheating by not using React&#39;s &lt;code&gt;setState&lt;/code&gt; but instead using &lt;code&gt;sessionStorage.setItem()&lt;/code&gt;. I think I can fix that by creating an app component and nesting but... time. I&#39;m sure that I&#39;m missing out on a lot of the React.js way of doing things, but here&#39;s my current solution: &lt;a href=&quot;https://github.com/joeypoon/secrets&quot; target=&quot;\_blank&quot;&gt;Code&lt;/a&gt; | &lt;a href=&quot;http://joeypoon.com/secrets/&quot; target=&quot;\_blank&quot;&gt;Site&lt;/a&gt;. The posts may take a second to load in the beginning since my back-end is on Heroku and the server will go to sleep if unused for a period of time. I am super proud of the non-existent load time when creating a new post though :).&lt;/postform&gt;&lt;/p&gt;
+&lt;p&gt;The first thing I can say about React.js is that it has some pretty nice docs. It took me about a day but I was able to implement a basic version of the lab in React. One of the key ideas of React is the use of components. Components are basically custom made HTML elements which enjoys some custom implementations. For example, I can make a &lt;PostForm&gt; component and reuse it. I think of it as I think of Rails partials. The cool thing is that components are a thing in Ember too and I do plan on re-visting Ember again next week. Another key idea of React is that components should be structured in a way that data flows in a linear fashion. Basically, data should only be accessible within parent-child relationships. This was a little tough for me and I ended up cheating by not using React&#39;s &lt;code&gt;setState&lt;/code&gt; but instead using &lt;code&gt;sessionStorage.setItem()&lt;/code&gt;. I think I can fix that by creating an app component and nesting but... time. I&#39;m sure that I&#39;m missing out on a lot of the React.js way of doing things, but here&#39;s my current solution: &lt;a href=&quot;https://github.com/joeypoon/secrets&quot; target=&quot;\_blank&quot;&gt;Code&lt;/a&gt; | &lt;a href=&quot;http://joeypoon.com/secrets/&quot; target=&quot;\_blank&quot;&gt;Site&lt;/a&gt;. The posts may take a second to load in the beginning since my back-end is on Heroku and the server will go to sleep if unused for a period of time. I am super proud of the non-existent load time when creating a new post though :).&lt;/PostForm&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
 &lt;p&gt;Our guest speaker today is Jeff Reichman from January Advisors. I met Jeff back during the &lt;a href=&quot;/blog/week-2-the-iron-yard-and-my-first-hackathon&quot; target=&quot;\_blank&quot;&gt;3rd annual Houston Hackathon&lt;/a&gt; and he is big on making Houston a better place using technology. He shared with us the some amazing facts about the City of Houston government and how we as devs can help make the city a better place. The City of Houston has a huge amount of data that isn’t being utilized and as devs we are in prime position to help make the data useful.&lt;/p&gt;
@@ -477,59 +543,6 @@ Nightmare mode:
         <pubDate>Sun, 07 Jun 2015 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/week-5-the-iron-yard</link>
         <guid isPermaLink="true">joeypoon.com/blog/week-5-the-iron-yard</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Week 4 The Iron Yard</title>
-        <description>&lt;h3 id=&quot;bittersweet&quot;&gt;Bittersweet&lt;/h3&gt;
-&lt;p&gt;It’s the end of my 4th week at TIY and it’s a strange feeling. We’ve gone from variables and arrays on day 1 to creating &lt;a href=&quot;https://github.com/joeypoon/surf_and_rails&quot;&gt;dynamic pages with Rails&lt;/a&gt; in less than 20 class days. With a third of the program now complete, I’m excited about what more I’ll be able to do at the end of the whole program. At the same time, I’m sad to see time passing so quickly. These 4 weeks have been the busiest and yet the most rewarding weeks of my life. It’s a bittersweet feeling. Oh, and I did &lt;a href=&quot;/blog/week-3-the-iron-yard&quot;&gt;eventually&lt;/a&gt; finish our &lt;a href=&quot;https://github.com/joeypoon/surf-and-paddle&quot;&gt;week 3 lab&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
-&lt;p&gt;Memorial day, no class 😢.&lt;/p&gt;
-
-&lt;h3 id=&quot;tuesday&quot;&gt;Tuesday&lt;/h3&gt;
-&lt;p&gt;Crazy rain caused some ridiculous flooding and freeways were all closed. Needless to say, TIY was closed too 😢.
-&lt;img src=&quot;/blog/img/houston-flood.jpg&quot; alt=&quot;houston-flood-2015&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;wednesday&quot;&gt;Wednesday&lt;/h3&gt;
-&lt;p&gt;Yay class! I have been so excited for this week to come. It’s Rails week! But before that, &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/blob/master/README.md&quot;&gt;challenge&lt;/a&gt;. Nothing too fancy today, just a bit of CSS positioning practice.&lt;/p&gt;
-
-&lt;p&gt;Lecture today is on…Rails! Bet you didn’t see that coming! So excite, much knowledge. Jesse did a quick run through of a basic Rails app with static pages.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;rails new app_name
-rails g controller Pages action1 action2
-rails s
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;He talked us through a simple &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/tree/master/texas&quot;&gt;Texas Cities site&lt;/a&gt;. During the walkthrough, he also went over routes, the gemfile, and the asset pipeline. No models yet.&lt;/p&gt;
-
-&lt;p&gt;After lunch, we had a review and Jesse ended up doing another talk-through of a &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/tree/master/review&quot;&gt;superhero static pages app&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Homework is to create a basic Rails app with some pages. I made mine about &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-16&quot;&gt;animals gifs&lt;/a&gt; because why not.
-&lt;img src=&quot;/blog/img/dog-pooping.gif&quot; alt=&quot;dog-pooping&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
-&lt;p&gt;Today’s &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-17/blob/master/README.md&quot;&gt;challenge&lt;/a&gt; is some Ruby class review. The interesting thing about this challenge is the introduction of &lt;code&gt;class Date&lt;/code&gt; to help us get the age of a person. I have to admit that I got a little cocky when I read challenge. &lt;code&gt;Date.today.year - @dob.year&lt;/code&gt;, ezpz right? Nope. Doesn’t pass the test because I forgot to account for whether the birthday has already passed or not for the current year. I was eventually able to come up with &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-17/person.rb&quot;&gt;this&lt;/a&gt; as a solution. I’m pretty sure this solution doesn’t account for leap years and leap birthdays but our 15 minutes were up 😞.&lt;/p&gt;
-
-&lt;p&gt;What’s not static? That’s right, dynamic! Today’s lecture is on dynamic pages in Rails. Jesse took our &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-16/tree/master/texas&quot;&gt;static Texas cities&lt;/a&gt; app from yesterday and turned it into an app with dynamic pages. Dynamic pages are way cool. We basically deleted all of our views from the static example and were able to make a single view with changing content. This allows us to generate millions of pages for different products, like Amazon does, with just a handful of views. Dynamic routes are awesome too &lt;code&gt; get &#39;/:post_name&#39; =&amp;gt; &#39;pages#show&#39;, as: :post &lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;This is day 2 of the week but it is still Thursday so of course we still get a &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-4-lab&quot;&gt;lab&lt;/a&gt; 😀. We basically have to take our &lt;a href=&quot;https://github.com/joeypoon/surf-and-paddle&quot;&gt;week 3 lab&lt;/a&gt; and turn it into a Rails app with dynamic pages.&lt;/p&gt;
-
-&lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
-&lt;p&gt;Our guest speaker for the week is &lt;a href=&quot;https://twitter.com/robyfitzhenry&quot;&gt;Roby Fitzhenry&lt;/a&gt;. Roby is a self-made entrepreneur and designer who speaks with passion. He shared his personal story with us and inspired us to follow our passion. One especially interesting moment to me was when someone asked Roby about front end vs back end pay. Roby’s response was that you should do whatever you enjoy. If you enjoy it, you’ll keep doing it and eventually you’ll become great at it.&lt;/p&gt;
-
-&lt;p&gt;Roby also explained design in a very human way, simply as a narrative. The most important thing is the story that you are telling. I think that as someone who loves banging away at the keyboard to chip away at technical problems, I sometimes forget what the end goal is. That is that I am building products for humans. How I build and design my applications tell a story to my users. How the story is told is just as important as the story itself. &lt;code&gt;rambling.end&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;So I actually finished the lab this week early and submitted it Thursday evening. Jesse, being the awesome instructor that he is, added nightmare mode Friday morning and made a point to let me know. You have to love it when an instructor adjusts for his students 😀. Since we’re doing Rails now, I’ll start adding both production and code links for Rails apps that I deploy. Week 4 lab: &lt;a href=&quot;https://surf-and-rails.herokuapp.com/&quot;&gt;production&lt;/a&gt; | &lt;a href=&quot;https://github.com/joeypoon/surf_and_rails&quot;&gt;code&lt;/a&gt;. It’s not really mobile responsive yet but I do plan on adding that in soon.&lt;/p&gt;
-
-&lt;h3 id=&quot;closing-thoughts&quot;&gt;Closing Thoughts&lt;/h3&gt;
-&lt;p&gt;Rails is awesome. Small things like &lt;code&gt;.parameterize&lt;/code&gt; and &lt;code&gt;.pluralize&lt;/code&gt; really make Rails friendly to use. Ruby and Rails might not be the leanest but the ease of use makes it such a joy to program with. In the end, isn’t that what technology is for? To make life easier? It’s exciting to see how far we’ve come in 4 weeks and I definitely can’t wait to see what we’ll be able to produce by the end of 12 weeks. Next week is database stuff, can’t wait!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 31 May 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/week-4-the-iron-yard</link>
-        <guid isPermaLink="true">joeypoon.com/blog/week-4-the-iron-yard</guid>
         
         
       </item>

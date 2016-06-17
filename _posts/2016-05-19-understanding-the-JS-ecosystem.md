@@ -19,14 +19,13 @@ After you initialize your project you can install packages using `$ npm install 
 Unlike `$ gem install gemName` which is a global install that you can access anywhere, npm install is a local install. You can only use the package in the directory you installed it. If needed, you can add the optional -g flag to save a package globally `$ npm install -g packageName`.
 
 ### Scripts
-In your package.json, you can add npm scripts. These are basically terminal aliases. You can run them using `$ npm run scriptName`. An example use case would be for tests `$ npm run tests`.
-```
-// projectRoot/package.json
-{
-  "scripts": {
-    "scriptName": "some terminal command",
-  }
-}
-```
+In your package.json, you can add npm scripts. These are basically terminal aliases. You can run them using `$ npm run scriptName`. An example use case would be for tests `$ npm run tests`.  
+
+    // projectRoot/package.json  
+    {  
+      "scripts": {  
+        "scriptName": "some terminal command"
+      }  
+    }
 
 It's now 1:20 AM so I am going to call it a night here. Stay tuned for part 2!
