@@ -5,64 +5,40 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 16 Jun 2016 12:38:06 -0500</pubDate>
-    <lastBuildDate>Thu, 16 Jun 2016 12:38:06 -0500</lastBuildDate>
+    <pubDate>Sat, 25 Jun 2016 00:59:29 -0500</pubDate>
+    <lastBuildDate>Sat, 25 Jun 2016 00:59:29 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Scope in JavaScript</title>
+        <description>&lt;p&gt;As a Rubyist, one of the biggest confusions for me when I started writing javascript was&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Jun 2016 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/scope-in-javascript</link>
+        <guid isPermaLink="true">joeypoon.com/blog/scope-in-javascript</guid>
+        
+        
+      </item>
     
       <item>
         <title>Async requests in React + Redux</title>
         <description>&lt;p&gt;So recently I had the pleasure of integrating React + Redux into an Angular/Rails project at work and I needed to come up with a good way to organize async requests. For some reason I neglected to google at the time to see that there were options like redux-thunk but I’m kind of happy with the result. So without further ado:&lt;/p&gt;
 
-&lt;p&gt;Just a regular request.&lt;/p&gt;
+&lt;p&gt;Just a regular ajax request.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// utils/my_util.js
-import fetch from &#39;isomorphic-fetch&#39;
-
-export default function myUtil () {
-  fetch(‘/my_resource’)
-    .then(data =&amp;gt; //dispatch to store with new data)
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;script src=&quot;https://gist.github.com/joeypoon/ddd0ee5b8ca58ef7f7897b6177668c1c.js&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;Include the request and request params in the action.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// action_creators/my_action.js
-import myUtil from &#39;../utils/my_util&#39;
+&lt;script src=&quot;https://gist.github.com/joeypoon/dd91899a25945291e6bed749342f818b.js&quot;&gt;&lt;/script&gt;
 
-export default function myAction (myParam, myParam2) {
-  return {
-    type: &#39;MY_ACTION&#39;,
-    meta: {
-      remote: myUtil,
-      remoteParams: [myParam, myParam2]
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check in the middleware for a remote action and call it with the params.&lt;/p&gt;
 
-&lt;p&gt;Make request with the params if there is a request in the action.&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/joeypoon/897247cb88a0934e18bed97b1373d0d9.js&quot;&gt;&lt;/script&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// remote_action_middleware.js
-export default store =&amp;gt; next =&amp;gt; action =&amp;gt; {
-  if (action.meta &amp;amp;&amp;amp; action.meta.remote) {
-    action.meta.remote.apply(this, action.meta.remoteParams || [])
-  }
-  return next(action);
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hook the middleware into the store.&lt;/p&gt;
 
-&lt;p&gt;Hook the remote action middleware into the store.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// store.js
-import remoteActionMiddleWare from &#39;./remote_action_middleware&#39;
-import { createStore, applyMiddleware } from &#39;redux&#39;
-import reducer from &#39;./reducer&#39;
-
-const createStoreWithMiddleware = applyMiddleware(
-  remoteActionMiddleware
-)(createStore)
-export const store = createStoreWithMiddleware(reducer)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;script src=&quot;https://gist.github.com/joeypoon/7fbfd8bf65984f1f50bdc488dad36459.js&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;So basically anytime an action with a remote is created, the async request will automatically be called in the middleware.&lt;/p&gt;
 </description>
@@ -463,86 +439,6 @@ DELETE /posts/:id deletes a post
         <pubDate>Sat, 13 Jun 2015 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/week-6-the-iron-yard</link>
         <guid isPermaLink="true">joeypoon.com/blog/week-6-the-iron-yard</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Week 5 The Iron Yard</title>
-        <description>&lt;h3 id=&quot;databases-oh-my&quot;&gt;Databases, oh my&lt;/h3&gt;
-&lt;p&gt;It’s finally time for databases! I have been waiting for this moment. All of my ideas require databases(what doesn’t nowadays?) so I’m super excited to build some awesome database backed projects. Let’s jump right into it.&lt;/p&gt;
-
-&lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
-&lt;p&gt;Our first &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-21&quot;&gt;challenge&lt;/a&gt; of the week is a review on Rails routes. We have to define a routes file that produced a predefined set of urls. My solution &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-21/challenge/config/routes.rb&quot;&gt;here&lt;/a&gt;. Funny thing about the challenge is that everyone in class did a full Rails app when apparently Jesse only wanted a routes file.&lt;/p&gt;
-
-&lt;p&gt;Lecture this week begins with an intro to postgresql and using psql. We went over the most common queries:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;create table table_name (column data_type, column2 data_type);
-insert into table (column, column2) values (value1, value2);
-select * from table where column = &#39;value&#39;;
-delete from table where column = &#39;value&#39;;
-drop table table_name;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Jesse shared with us that this is the first time TIY Houston Rails Engineering is getting lectured over SQL queries. Some students from past cohorts told them that they wished that they had more SQL knowledge. It’s super cool to see them take feedback seriously and I’m glad that I can better understand what calling &lt;code&gt;Model.all&lt;/code&gt; in Rails actually does in the background.&lt;/p&gt;
-
-&lt;p&gt;Homework today is completing &lt;a href=&quot;http://www.sqlcourse.com&quot;&gt;sqlcourse&lt;/a&gt; and creating a script to accomplish &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-21&quot;&gt;this&lt;/a&gt;. My solution is &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-21/sql_assignment.txt&quot;&gt;here&lt;/a&gt;. I’ll note that it’s pretty important to look at your classmates’ solutions after completing it yourself. You’ll sometimes discover better ways to solve the problem. In this case, I learned that I can insert all my cities in the same statement. This would have saved me quite a number of lines.&lt;/p&gt;
-
-&lt;h3 id=&quot;tuesday&quot;&gt;Tuesday&lt;/h3&gt;
-&lt;p&gt;Tuesday &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-22&quot;&gt;challenge&lt;/a&gt; is to create a table for storing panda information. After creating the table, we have to write queries that will pull the largest male and largest female panda. My solution &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-22/pandas.txt&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Lecture today is pretty heavy. We covered multiple tables and joins, ActiveRecord, and migrations. I think now is a good time to mention how important it is to attend meetups even if you don’t fully understand the topic at hand. Last month’s Ruby meetup had Derek Anderson introducing us to his Rails tool &lt;a href=&quot;https://github.com/keredson/ruby-db-evolve&quot;&gt;db:evolve&lt;/a&gt;. db:evolve allows you to update your tables by changing the schema directly. The basic premise is that it takes git diffs of the schema and updates the tables according to the differences. This method is way easier and, in my opinion, more intuitive than creating migrations. We hadn’t even touched Rails when this meetup occurred so my knowledge of the topic at the time was limited at best. Looking back at it, I can now understand how awesome this tool is.&lt;/p&gt;
-
-&lt;p&gt;Homework is to create a &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-22&quot;&gt;blog&lt;/a&gt; (no scaffolding, of course). It’s a basic blog so all it needs is a &lt;code&gt;:title&lt;/code&gt; and &lt;code&gt;:body&lt;/code&gt;. We need to populate the blog with seed data and it should have a working index action and show action. As an addition, we have to add a &lt;code&gt;published_on:date&lt;/code&gt; column using a migration and only display posts that are published. My &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/c52e656019ab2c395d152f7544fd5f59b4bbbb4d/day-22/blog&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;wednesday&quot;&gt;Wednesday&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-23&quot;&gt;Challenge&lt;/a&gt; for the day is to create a migration to add a column to a table and another migration to remove a column. The challenge itself wasn’t too difficult, but we did get to learn how to deal with typos and such. You can’t just change a migration file that has already been run since Rails will think that it has already run and won’t make apply the changes. You instead have to &lt;code&gt;db:migrate:down VERSION=version_number&lt;/code&gt; first. My solution &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-23/day-23/pins/db/migrate&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We covered forms and validations in lecture today. Jesse first made a form using only HTML, then he used the &lt;code&gt;form_tag&lt;/code&gt;, then he used &lt;code&gt;form_for @model&lt;/code&gt;. It’s pretty interesting to see the different methods as it helps me visualize exactly what &lt;code&gt;form_for&lt;/code&gt; does. I have actually used &lt;code&gt;form_for&lt;/code&gt; in conjunction with a &lt;code&gt;scaffold&lt;/code&gt; in a &lt;a href=&quot;http://joeypoon.com/blog/working-efficiently/&quot;&gt;project&lt;/a&gt; before and had trouble making it work without scaffold. Now I can see that I simply didn’t set up my RESTful actions properly, it’s actually quite embarrassing when I look back at it. For validations, we covered a basic presence and numericality assertion. It’s pretty cool that you can validate input with just a single line. I remember when I &lt;a href=&quot;https://github.com/joeypoon/Summer_FA_Calculator&quot;&gt;manually&lt;/a&gt; did input validations.&lt;/p&gt;
-
-&lt;p&gt;Our &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-23&quot;&gt;homework&lt;/a&gt; today is an add-on to &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-22&quot;&gt;yesterday’s homework&lt;/a&gt;. We have to add the ability to create posts, edit posts, and validate all fields. My &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-22/blog&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
-&lt;p&gt;Sing it with me, lab day~&lt;del&gt;lab day&lt;/del&gt;~. It’s always so exciting to see what awesome project we get to build over the weekend. Anyways, morning &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-24&quot;&gt;challenge&lt;/a&gt; is to write methods into the Buyer model to make the tests pass. This is our first time dealing with tests within a Rails environment so it was actually pretty difficult. I was able to get write a naive solution for checking age but I kept having issues getting the tests to pass. Eventually I noticed that the methods tested end in ? so they should return a boolean. Given our heavy use of assert_equal in the past, my brain automatically thought that the methods should return the string at the end of each test. Silly mistake. My solution &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-24/validity/app/models/buyer.rb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Our last lecture of the week is over table relationships, Heroku, and flash messages. Rails again shows its awesomeness by making relationships easy to manage with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;belongs_to
-has_many
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It’s funny how easy Heroku seems when someone walks you through it. I can’t count the amount of time it took me to deploy my first app on my own.&lt;/p&gt;
-
-&lt;p&gt;Time for weekend fun! &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-5-lab&quot;&gt;Lab this week&lt;/a&gt; is to recreate reddit.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Normal mode:
-* Index of user posted links that are ranked by votes
-* Votes increment when a link is clicked
-* No downvotes
-
-Hard mode:
-* Downvotes
-* Add relationships between User and Posts
-* Allow selection of User when creating a post
-* Validate link uniqueness
-
-Nightmare mode:
-* Add User sign-in
-* Add testing
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Something I noticed when doing this project is that I tend to drift into multiple features at the same time. This leaves me with multiple half finished features and I get lost in thought. I’ve decided to start using Trello to write out features to add. I then work on them one at a time and move them to done as I go. It also helps me not forget features that I want to add. It’s working out pretty well so far.&lt;/p&gt;
-
-&lt;p&gt;One technical problem I had with this project is trying to integrate &lt;code&gt;gem devise&lt;/code&gt; into my project. I found it pretty hard to implement when I didn’t understand what it was doing and I honestly wasn’t very fond of its documentation. I ended up scrapping devise and at the same time, blowing up my project. Not knowing what devise installed made it even harder to remove all its pieces. Thank goodness for git, I just reverted back to my last working version. I still have quite a few features that I want to add to make it more reddit-like but functionality-wise, nightmare mode &lt;a href=&quot;https://github.com/joeypoon/reddit_clone&quot;&gt;solution&lt;/a&gt; is complete (&lt;code&gt;has_secure_password&lt;/code&gt; is awesome). Here’s the &lt;a href=&quot;https://joey-reddit-clone.herokuapp.com&quot;&gt;live version&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
-&lt;p&gt;Our guest for the week is Amanda Shih from OpenStax. Amanda is super active around the Houston tech community and showed us some awesome JS robotics. She actually hooked up a robot that we could control through her server. She then walked us through the setup process. It’s pretty cool to see how simple it is to do something like get a robot to move with some of the tools that are already available.&lt;/p&gt;
-
-&lt;p&gt;Our projects are getting pretty awesome. To be able to build something like Reddit is amazing. To think that just over a month ago we wrote our first loop, it is amazing the amount of ground we have covered in such a short time. Time to get back to work 😀. See you all next week.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 07 Jun 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/week-5-the-iron-yard</link>
-        <guid isPermaLink="true">joeypoon.com/blog/week-5-the-iron-yard</guid>
         
         
       </item>
