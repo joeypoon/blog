@@ -9,9 +9,9 @@
     <meta name="description" content="A Programmer's Adventures">
 
     <title>Blog | Joey F. Poon</title>
-    <!-- <title>Blog | Joey F. Poon</title> -->
+    <!-- <title>Undertanding JavaScript - Blog | Joey F. Poon</title> -->
 
-    <link rel="canonical" href="joeypoon.com/blog/page3/">
+    <link rel="canonical" href="joeypoon.com/blog/understanding-javascript">
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
     <link rel="stylesheet" href="/blog/css/clean-blog.min.css">
     <link rel="stylesheet" href="/blog/css/syntax.css">
@@ -66,146 +66,91 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Joey F. Poon</h1>
-                    <!-- <h1>Blog | Joey F. Poon</h1> -->
-                    <hr class="small">
-                    <span class="subheading">A Programmer's Adventures</span>
-                    <ul class="list-inline text-center" style="font-size:1.5em;">
-                      
-                      <li>
-                          <a href="https://github.com/joeypoon" target="_blank">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      
-                        
-                        <li>
-                            <a href="https://twitter.com/joeyfpoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="https://www.linkedin.com/in/joeypoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
+                <div class="post-heading">
+                    <h1>Undertanding JavaScript</h1>
+                    
+                    <h2 class="subheading">Fundamentals</h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on June 25, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/blog/week-5-the-iron-yard.html">
-        <h2 class="post-title">            Week 5 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Databases, tables, and PostgreSQL
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on June 7, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/blog/week-4-the-iron-yard.html">
-        <h2 class="post-title">            Week 4 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Rails and dynamic pages
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 31, 2015</p>
-</div>
-<hr>
+				<p>This week I spent quite a bit of time brushing up on some JavaScript fundamentals so I thought it would be a good idea to do a review.</p>
 
-<div class="post-preview">
-    <a href="/blog/week-3-the-iron-yard.html">
-        <h2 class="post-title">            Week 3 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Peanut butter and Jekyll
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 24, 2015</p>
-</div>
-<hr>
+<h3 id="variable-hoisting">Variable Hoisting</h3>
+<p>In JavaScript, variable declarations are automatically hoisted to the top of the current scope. This means that</p>
 
-<div class="post-preview">
-    <a href="/blog/week-2-the-iron-yard-and-my-first-hackathon.html">
-        <h2 class="post-title">            Week 2 The Iron Yard and My First Hackathon
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Dreaming in code
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 18, 2015</p>
-</div>
-<hr>
+<script src="https://gist.github.com/joeypoon/76788be38e5e6c79cc32dfb7ab8db438.js"></script>
 
-<div class="post-preview">
-    <a href="/blog/week-1-the-iron-yard.html">
-        <h2 class="post-title">            Week 1 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            The start of a new adventure
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 9, 2015</p>
-</div>
-<hr>
+<p>Is the same as</p>
+
+<script src="https://gist.github.com/joeypoon/cf554a9ad025fba8d96f15080561ee81.js"></script>
+
+<p>Only declarations are hoisted</p>
+
+<script src="https://gist.github.com/joeypoon/e1990515253f1a5204196e88a9db508d.js"></script>
+
+<p>Is <em>not</em> the same as</p>
+
+<script src="https://gist.github.com/joeypoon/1c6f8cf036ca47a1ebdfae3ccd251d59.js"></script>
+
+<p>It logs undefined because only the declaration and not the initialization is hoisted to the top.</p>
+
+<h3 id="closures">Closures</h3>
+<p>You may have seen something like this before</p>
+
+<script src="https://gist.github.com/joeypoon/5bf7e02fe8b96480f2737f75291d7896.js"></script>
+
+<p>Albeit simple, this is an anonymous function in a closure which calls itself. So what good are closures? Closures are great for emulating private variables and methods. Let’s look at an example:</p>
+
+<script src="https://gist.github.com/joeypoon/f8534b27a9653cec9b4a60698dcedb70.js"></script>
+
+<p>The count variable is private and can’t be modified outside of the increment method we defined.</p>
+
+<h3 id="classes">Classes</h3>
+<p>Prior to ES2015 and the class keyword, constructor functions were the only way to create classes in JS.</p>
+
+<script src="https://gist.github.com/joeypoon/f01b85b585afcbb27dd4a21249cec811.js"></script>
+
+<p>Now with ES2015 we can do:</p>
+
+<script src="https://gist.github.com/joeypoon/33d61d85e5036b40ddfc92d3acdf178c.js"></script>
+
+<p>As you can see above, you can also use the static keyword to create a class method. Now, we can’t talk about JS classes without talking about prototypes. JS isn’t really a classed language, it is a prototype-based language. Even the class keyword in ES2015 is just syntax sugar. Under the hood, JS still uses prototypes. A prototype is just an object’s parent object. What this means is that we can inherit methods through the prototype.</p>
+
+<script src="https://gist.github.com/joeypoon/12e5f90b4cf3139ac07a22e1047532da.js"></script>
 
 
-<!-- Pager -->
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/blog/page2">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/blog/page4">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+                <hr>
 
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/async-requests-in-react-redux.html" data-toggle="tooltip" data-placement="top" title="Async requests in React + Redux">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
 
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
