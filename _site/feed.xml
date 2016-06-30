@@ -5,9 +5,38 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 25 Jun 2016 19:34:12 -0500</pubDate>
-    <lastBuildDate>Sat, 25 Jun 2016 19:34:12 -0500</lastBuildDate>
+    <pubDate>Wed, 29 Jun 2016 22:45:31 -0500</pubDate>
+    <lastBuildDate>Wed, 29 Jun 2016 22:45:31 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Understanding Angular Data Binding</title>
+        <description>&lt;p&gt;So this is a little late now that Angular 2 is coming out but I still have to write Angular at work so here it is: how Angular knows when data has changed.&lt;/p&gt;
+
+&lt;h3 id=&quot;angular-context&quot;&gt;Angular Context&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Angular context&lt;/em&gt; basically means something that Angular knows about. You’ve probably heard of &lt;code&gt;$watch&lt;/code&gt;, &lt;code&gt;$digest&lt;/code&gt;, and &lt;code&gt;$apply&lt;/code&gt; before but may not have actually used them. This is because everything you use from the Angular library is automatically executed in the &lt;em&gt;Angular context&lt;/em&gt; and will use &lt;code&gt;$watch&lt;/code&gt;, &lt;code&gt;$digest&lt;/code&gt;, and &lt;code&gt;$apply&lt;/code&gt; for you. However, sometimes you run into bugs that you can’t explain or performance issues and that is when knowledge of &lt;code&gt;$watch&lt;/code&gt;, &lt;code&gt;$digest&lt;/code&gt;, and &lt;code&gt;$apply&lt;/code&gt; will be useful.&lt;/p&gt;
+
+&lt;h3 id=&quot;watch&quot;&gt;$watch&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;$watch&lt;/code&gt; tells Angular to watch something for changes. Angular automatically adds a &lt;code&gt;$watch&lt;/code&gt; when you use directives (&lt;code&gt;ng-model&lt;/code&gt;, &lt;code&gt;ng-repeat&lt;/code&gt;, etc) or data-binding {{ myModel }}. You can also manually tell Angular to &lt;code&gt;$watch&lt;/code&gt; something:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/joeypoon/8ec148cb05ce428db9ebffe59d53dcb6.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;code&gt;$watch&lt;/code&gt; checks by reference by default so if you need to check by value such as in the second example above, you need to pass &lt;code&gt;true&lt;/code&gt; as the third param. It is important to note that &lt;code&gt;$watch&lt;/code&gt; doesn’t actually do dirty-checking or change the DOM to reflect the changes. When does that happen you ask?&lt;/p&gt;
+
+&lt;h3 id=&quot;digest&quot;&gt;$digest&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;$digest&lt;/code&gt; is what actually checks for and triggers changes. When &lt;code&gt;$digest&lt;/code&gt; is called the &lt;code&gt;$digest&lt;/code&gt; cycle starts. During the &lt;code&gt;$digest&lt;/code&gt; cycle, all of the &lt;code&gt;$watch&lt;/code&gt;ers on the current and children scope are checked for changes. If any changes are present, the cycle is repeated. This will continue until no more changes are found (or 10 cycles looped) and the cycle ends leaving the DOM to be updated with the reported changes.&lt;/p&gt;
+
+&lt;h3 id=&quot;apply&quot;&gt;$apply&lt;/h3&gt;
+&lt;p&gt;So if &lt;code&gt;$watch&lt;/code&gt; and &lt;code&gt;$digest&lt;/code&gt; are enough to check for changes and update the DOM, why is this post not finished? Because when Angular runs the &lt;code&gt;$digest&lt;/code&gt; cycle for you, it is actually calling &lt;code&gt;$apply&lt;/code&gt; first. &lt;code&gt;$apply&lt;/code&gt; calls &lt;code&gt;$rootScope.$digest&lt;/code&gt;. This is an important difference for two reasons. First, this executes from the &lt;code&gt;$rootScope&lt;/code&gt; instead of the current scope. Second, &lt;code&gt;$apply&lt;/code&gt; will apply the &lt;code&gt;$digest&lt;/code&gt; the &lt;em&gt;Angular context&lt;/em&gt;. This is good since Angular will be able to catch any exceptions.&lt;/p&gt;
+
+&lt;p&gt;And now you’re an expert on Angular data binding.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 29 Jun 2016 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/angular-cheatsheet</link>
+        <guid isPermaLink="true">joeypoon.com/blog/angular-cheatsheet</guid>
+        
+        
+      </item>
     
       <item>
         <title>Undertanding JavaScript</title>
@@ -408,81 +437,6 @@ DELETE /posts/:id deletes a post
         <pubDate>Sun, 21 Jun 2015 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/week-7-the-iron-yard</link>
         <guid isPermaLink="true">joeypoon.com/blog/week-7-the-iron-yard</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Week 6 The Iron Yard</title>
-        <description>&lt;h3 id=&quot;half-way&quot;&gt;Half Way&lt;/h3&gt;
-&lt;p&gt;This week marks the half way point of the Houston Iron Yard Rails engineering program, made official with some &lt;a href=&quot;https://twitter.com/matthiasak/status/609347338276986880&quot; target=&quot;\_blank&quot;&gt;BBQ by our very own Dotron&lt;/a&gt;. It is unbelievable that we’re already half-way in. I have been having so much fun that I haven’t really thought about it but it is actually super scary to think about what’s going to happen in 6 weeks. Another 6 weeks from now, we are all going to be working as junior devs or starting our own companies. Will we be ready? The imposter syndrome is strong in us.&lt;/p&gt;
-
-&lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
-&lt;p&gt;Oh noes, a broken app! Our &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-26&quot; target=&quot;\_blank&quot;&gt;challenge&lt;/a&gt; today is to fix it. When you look at it, this challenge is actually really smart. I mean, as a dev, cloning the repo of a broken app and fixing it is probably quite a real and fairly common scenario. It’s also a super good exercise in teaching yourself how to troubleshoot. You clone the repo and check if it runs. It runs but you get a default Rails screen? Okay, check the routes. Routes fixed, what does localhost:3000 show now? Nothing. Okay, let’s follow the route into the controller and corresponding view. Still not working? Let’s see what console/inspector shows. Ah, can’t load bootstrap huh? application.css needs to be renamed application.scss. My &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-26/railsy&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;. The funny thing about this exercise is that there is barely any coding at all. It’s a good reminder that sometimes what’s broken isn’t necessarily the code but the most obvious thing.&lt;/p&gt;
-
-&lt;p&gt;Agenda for the day:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* Session and Authentication
-* has_secure_password
-* simple_form
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Some super important stuff today. Almost all sites require signing up and signing in so this lesson is vital. It is always cool to see how much fun it is to develop in Rails. Being able to run a secure signup with just a single method &lt;code&gt;has_secure_password&lt;/code&gt; and throwing up a form with just a couple lines of code using &lt;code&gt;gem simple_form&lt;/code&gt; makes using Rails such a joy. It’s funny how grand it sounds when you think of writing code for logging in a user when all we’re doing is something as trivial as setting &lt;code&gt;session[:user_id]&lt;/code&gt;. A great resource on the topic of user sign up is &lt;a href=&quot;https://www.railstutorial.org/book/modeling_users#cha-modeling_users&quot; target=&quot;\_blank&quot;&gt;Chapter 6 of Michael Hartl’s Rails Tutorial&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;No homework today.&lt;/p&gt;
-
-&lt;h3 id=&quot;tuesday&quot;&gt;Tuesday&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-27&quot; target=&quot;\_blank&quot;&gt;Challenge&lt;/a&gt; today is super hard to finish in fifteen minutes. We basically have to create a super naive version of Twitter. The challenge calls for a single page with a list of all tweets in descending order so I started with &lt;code&gt;rails g controller Posts index&lt;/code&gt;. Since it’s single page, I set the root to the index. Index page on &lt;code&gt;localhost:3000&lt;/code&gt; as expected. Tweets need to be stored somewhere so I went ahead with &lt;code&gt;rails g model Post content:text&lt;/code&gt;. It’s a microblog post so &lt;code&gt;validates length: { maximum: 142 }&lt;/code&gt; in &lt;code&gt;Post.rb&lt;/code&gt; before I forget. Now I need a way to tweet so let’s throw a &lt;code&gt;form_for @post&lt;/code&gt; together. I want to put it at the top index so let’s make it more readable by writing the form in a partial and rendering it in index. Index is broken on localhost due to missing route as expected. Let’s add the needed route for the form&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;post &#39;posts&#39; =&amp;gt; &#39;posts#create&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Localhost now shows missing action posts#create as expected so let’s add a create method in &lt;code&gt;posts_controller.rb&lt;/code&gt;. Now index loads but there’s no tweets showing. Better add &lt;code&gt;Post.all&lt;/code&gt; to the index action and throw an ordered loop into the view. My &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-27/deep_thought&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;. I’m actually super proud that I finished within the time limit 😎.&lt;/p&gt;
-
-&lt;p&gt;Today’s lecture is over two very awesome gems. Carrierwave and Kaminari. Carrierwave is for image uploading and Kaminari is for pagination. With all the amazing things we have been doing with gems, we now have a joke in class that at the end of the program Jesse will tell us that we can finish our entire app with a single &lt;code&gt;rails g&lt;/code&gt; line.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-27&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; today is practicing what we’ve learned these past two days. We are to create an online photo album with login authentication required for uploading. We need a controller with a list of photos so let’s start with &lt;code&gt;rails g controller Photos index&lt;/code&gt;. Let’s set the index to the root path and since we’re in routes, add &lt;code&gt;&#39;/admin&#39; =&amp;gt; &#39;photos#new&#39;, as: :new_photo&lt;/code&gt;. We will need a place to store photos so lets &lt;code&gt;rails g model Photo name&lt;/code&gt; and add Carrierwave to the gemfile and bundle. Carrierwave needs us to run a generator and mount the uploader in the model so let’s do that first.&lt;/p&gt;
-
-&lt;p&gt;The photo index needs to be paginated so let’s add Kaminari to the gemfile and bundle. Run the Kaminari generators and update our controller so that it displays our photos. We need a way to add photos so let’s add a &lt;code&gt;form_tag&lt;/code&gt; to our &lt;code&gt;new&lt;/code&gt; action. Lastly, we need to secure the upload form so let’s add a session controller, User model, and &lt;code&gt;has_secure_password&lt;/code&gt;. I don’t want new User signups so we’ll leave out a users controller and simply create a user in seeds. Solution: &lt;a href=&quot;https://joey-photo-uploader.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;site&lt;/a&gt; | &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-27/photo_uploader&quot; target=&quot;\_blank&quot;&gt;code&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;wednesday&quot;&gt;Wednesday&lt;/h3&gt;
-&lt;p&gt;Our daily &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-28&quot; target=&quot;\_blank&quot;&gt;morning mental stretch&lt;/a&gt; is to, given a database table, write validations for all fields, mount Carrierwave, and add relationships. There’s an added hard mode to write a getter and setter method that returns price in dollars and stores dollars into cents. My &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-28/challenge.rb&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Lecture for the day:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* dotenv-rails
-* carrierwave-aws
-* acts_as_follower
-* acts_as_taggable_on
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Carrierwave, while awesome, stores files locally. This causes problems when you deploy through Heroku and scale beyond one. The simple solution is carrierwave-aws. carrierwave-aws allows you to easily route your Carrierwave images into your S3 account. Amazon S3 requires an access ID and secret key in order to access. As lazy programmers we definitely don’t want to type it out every time so we put it into a &lt;code&gt;.env&lt;/code&gt; file and load it by using &lt;code&gt;gem dotenv-rails&lt;/code&gt;. We can make sure to not commit it into git by adding it to gitignore. However, now Heroku is broken. Git now ignores the &lt;code&gt;.env&lt;/code&gt; file so Heroku doesn’t get a copy. Unfortunately, we have to manually add the keys to &lt;code&gt;Heroku config:set&lt;/code&gt;. On the bright side, it’s not too troublesome.&lt;/p&gt;
-
-&lt;p&gt;acts_as_follower is basically a gem that simplifies the more complex challenge of allowing an object to follow another object. acts_as_taggable_on is the same but for creating category tags.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-28&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is to upgrade yesterday’s homework to use S3 for image storage and add image tagging. Solution: &lt;a href=&quot;http://joey-photo-uploader.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;site&lt;/a&gt; | &lt;a href=&quot;https://github.com/joeypoon/iron_yard/tree/master/day-27/photo_uploader&quot; target=&quot;\_blank&quot;&gt;code&lt;/a&gt;. Basically it’s integrating carrierwave-aws, dotenv, Heroku environment variables, and acts_as_taggable_on with yesterday’s homework.&lt;/p&gt;
-
-&lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
-&lt;p&gt;Our challenge today takes on the familiar form of tests. We are to write code to make these &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-29/blob/master/caffeine/caffeine_tests.rb&quot; target=&quot;\_blank&quot;&gt;tests&lt;/a&gt; pass. The only weird part about the challenge was getting the coffee to return empty after 3 drinks. I decided to do a 0 to 1 scale so subtracting .33 * 3 wasn’t quite 0. I ended up doing an ugly if statement to set the coffee to 0. My &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-28/challenge.rb&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;. Jesse’s solution used a scale of 0 to 99 which I find to be more elegant.&lt;/p&gt;
-
-&lt;p&gt;Today’s lecture is just review. Our &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-6-lab&quot; target=&quot;\_blank&quot;&gt;lab&lt;/a&gt; this week is to recreate Twitter. My solution: &lt;a href=&quot;https://joey-flatter.herokuapp.com&quot; target=&quot;\_blank&quot;&gt;site&lt;/a&gt; | &lt;a href=&quot;https://github.com/joeypoon/flatter&quot; target=&quot;\_blank&quot;&gt;code&lt;/a&gt;. I apologize for not being very descriptive with my thought process for the lab, I’m pretty tired right now but I did leave a nice commit trail 😀.&lt;/p&gt;
-
-&lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
-&lt;p&gt;Our guest speaker today is Mohammad Azam, senior mobile dev at blinds.com. He shared some cool knowledge of iBeacons with us. He also showed us an app he has been working on that notifies you when your luggage has arrived at the terminal. I know I’d pay money for that. Today is also the official half-way point of our program. We celebrated with some BBQ for lunch. Yum yum.&lt;/p&gt;
-
-&lt;h3 id=&quot;other-things&quot;&gt;Other Things&lt;/h3&gt;
-&lt;p&gt;My classmates asked me a very interesting question this week - is The Iron Yard worth the money I put into it? This may seem like a strange question coming from someone else who is also currently attending TIY so let me provide some context. TIY is a 0 to 60 program. This means that they have the expectation that you have zero programming knowledge at the start of the bootcamp. There are other types of programming bootcamps. I believe Hack Reactor advertises itself as a 20 to 120 program, for example. I didn’t come into TIY at zero. I had been teaching myself programming for about a year by the time I started Rails engineering at The Iron Yard. I certainly wasn’t anything more than a novice and I certainly wasn’t good enough for a junior dev position but my time in the program so far definitely has not been too head-banging.&lt;/p&gt;
-
-&lt;p&gt;So back to my classmates’ question. Is TIY worth the price for me? Or perhaps more generally, is TIY worth the price for someone who isn’t starting at zero? 100% yes. While I can’t deny that I probably would have been a better fit at something like the Hack Reactor, I have no regrets with choosing TIY’s program. The fact is that while I’m not banging my head, I am solidifying my programming ability. Things that worked but I had no understanding of are now making sense. Things that took hours to build or debug, now only take minutes. The direction I have received from Jesse alone has made my time at TIY invaluable to me. I certainly would not have reached my current level so soon without TIY. Unless you are already junior dev level (then you don’t need a bootcamp at all!), you will most certainly get your money’s worth at The Iron Yard.&lt;/p&gt;
-
-&lt;p&gt;As you’ve probably noticed, I wrote out my thought process a little more for some of the challenges and assignments. I unfortunately didn’t have time to do all of them but let me know what you think. Is it boring? Too many words? Interesting? Tweet me &lt;a href=&quot;https://twitter.com/joeyfpoon&quot; target=&quot;\_blank&quot;&gt;@joeyfpoon&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Also new family member is settling right in:
-&lt;img src=&quot;/blog/img/tiger.jpg&quot; alt=&quot;tiger&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 13 Jun 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/week-6-the-iron-yard</link>
-        <guid isPermaLink="true">joeypoon.com/blog/week-6-the-iron-yard</guid>
         
         
       </item>
