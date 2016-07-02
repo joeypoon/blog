@@ -5,9 +5,48 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 29 Jun 2016 22:45:31 -0500</pubDate>
-    <lastBuildDate>Wed, 29 Jun 2016 22:45:31 -0500</lastBuildDate>
+    <pubDate>Fri, 01 Jul 2016 20:37:27 -0500</pubDate>
+    <lastBuildDate>Fri, 01 Jul 2016 20:37:27 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Performance Optimization</title>
+        <description>&lt;h3 id=&quot;the-problem&quot;&gt;The Problem&lt;/h3&gt;
+&lt;p&gt;So these last couple of days, I have been trying to optimize a certain page at work. It already received a partial rebuild from Angular to React but we were starting to see some slow down when the page got busy. The busiest part of the page is a table (about 25 rows x 10 columns) that received 1 or 2 updates every 5 seconds per row. This proved to be a performance problem with the &lt;a href=&quot;/blog/understanding-angular-data-binding&quot; target=&quot;\_blank&quot;&gt;&lt;code&gt;$digest&lt;/code&gt; cycle constantly retriggering&lt;/a&gt; so we rewrote the table in React. This improved the situation but we still see a slowdown when it gets busy; enter JavaScript profiling with Chrome Dev Tools.&lt;/p&gt;
+
+&lt;h3 id=&quot;javascript-profiling&quot;&gt;JavaScript Profiling&lt;/h3&gt;
+&lt;p&gt;JS profiling allows us to see exactly what functions are using up our resources and how long they are running for. To start profiling: cmd + alt + i to open up dev tools, click profiles, select collect JavaScript CPU profile, and click start. Click stop when you’re ready to stop recording. By default you’ll see the data organized by ‘Heavy (Bottom Up)’ which shows you the most time intensive functions on top. I like to use the flame chart since it’s more visual; click ‘Heavy (Bottom Up)’ and select chart. Here’s what mine looked like:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/blog/img/performance-optimization-before.png&quot; target=&quot;\_blank&quot;&gt;
+  &lt;img src=&quot;/blog/img/performance-optimization-before.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It defaults to a zoomed out view but you can zoom in to the trouble areas for a more detailed look as I have above. I can see here that my &lt;code&gt;$digest&lt;/code&gt; cycle is taking a good ~150ms. I can also see that the vast majority of the &lt;code&gt;$digest&lt;/code&gt; cycle is being taken up by &lt;code&gt;angular.copy&lt;/code&gt;. &lt;code&gt;angular.copy&lt;/code&gt; is used by &lt;code&gt;$digest&lt;/code&gt; to copy the value of a &lt;code&gt;$watch&lt;/code&gt; for dirty checking. This tells me that I should probably look at my &lt;code&gt;$watch&lt;/code&gt;ers.&lt;/p&gt;
+
+&lt;h3 id=&quot;watching-the-watchers&quot;&gt;Watching the &lt;code&gt;$watch&lt;/code&gt;ers&lt;/h3&gt;
+&lt;p&gt;If you’re interested in an easy way to look at your &lt;code&gt;$watch&lt;/code&gt;ers, I found this &lt;a href=&quot;https://medium.com/@kentcdodds/counting-angularjs-watchers-11c5134dc2ef#.cpc8prsle&quot; target=&quot;\_blank&quot;&gt;post&lt;/a&gt; to be especially useful; it’s what I used. A quick check gives me &amp;gt;300 &lt;code&gt;$watch&lt;/code&gt;ers. That’s more than I expect given that the main table is built with React. 300 is a bit much to look through manually so I remove all the elements on the page other than the main table itself. This leaves me with 16 &lt;code&gt;$watch&lt;/code&gt;ers, much more managable. Digging through the &lt;code&gt;$watch&lt;/code&gt;ers I find something interesting, an array with the same length as the current number of table rows (of course it’s the last one I check…).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/blog/img/performance-optimization-watchers.png&quot; target=&quot;\_blank&quot;&gt;
+  &lt;img src=&quot;/blog/img/performance-optimization-watchers.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking through the code, I see that the array is actually a &lt;code&gt;$scope&lt;/code&gt;d Angular model being passed in to the React table as a prop. I know that the objects inside the array are fairly complex so my theory at this point is that &lt;code&gt;angular.copy&lt;/code&gt; is having trouble deep copying all the objects.&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-my-theory&quot;&gt;Testing my Theory&lt;/h3&gt;
+&lt;p&gt;I had already setup a Redux store so it is easy to test my theory. Instead of passing the array directly to the React table, I will send it to the store using &lt;code&gt;store.dispatch&lt;/code&gt; and use &lt;code&gt;ReactRedux.connect&lt;/code&gt; to hook it into the React table. Let’s test the results:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/blog/img/performance-optimization-after.png&quot; target=&quot;\_blank&quot;&gt;
+  &lt;img src=&quot;/blog/img/performance-optimization-after.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I can’t even find &lt;code&gt;$digest&lt;/code&gt; or &lt;code&gt;angular.copy&lt;/code&gt; on the flame chart anymore. What a beautiful time improvement :).&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Jul 2016 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/performance-optimization</link>
+        <guid isPermaLink="true">joeypoon.com/blog/performance-optimization</guid>
+        
+        
+      </item>
     
       <item>
         <title>Understanding Angular Data Binding</title>
@@ -32,8 +71,8 @@
 &lt;p&gt;And now you’re an expert on Angular data binding.&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Jun 2016 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/angular-cheatsheet</link>
-        <guid isPermaLink="true">joeypoon.com/blog/angular-cheatsheet</guid>
+        <link>joeypoon.com/blog/understanding-angular-data-binding</link>
+        <guid isPermaLink="true">joeypoon.com/blog/understanding-angular-data-binding</guid>
         
         
       </item>
@@ -382,61 +421,6 @@ DELETE /posts/:id deletes a post
         <pubDate>Sun, 28 Jun 2015 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/week-8-the-iron-yard</link>
         <guid isPermaLink="true">joeypoon.com/blog/week-8-the-iron-yard</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Week 7 The Iron Yard</title>
-        <description>&lt;h3 id=&quot;week-of-javascript&quot;&gt;Week of JavaScript&lt;/h3&gt;
-&lt;p&gt;This week is the week of the all too essential JavaScript. I can’t say that I’m too fond of the language itself but I can’t deny that you can do some awesome things with JS and that it is a must learn for any web dev. I’m actually teaching myself Ember.js on the side since I plan on using ember-rails-cordova to create a mobile app in my final project. I am really starting to feel the sleep deprivation this week. Having to work while doing TIY is exhausting. Software is never finished and there is never enough time to add and fix everything you want to. I really need to work on getting to sleep earlier.&lt;/p&gt;
-
-&lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
-&lt;p&gt;Today starts our JavaScript adventures. &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-31&quot; target=&quot;\_blank&quot;&gt;Challenge&lt;/a&gt; today is to write a program that will return the worst movie provided a &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-31/blob/master/movies.json&quot; target=&quot;\_blank&quot;&gt;list&lt;/a&gt; of movies. We never formally covered JSON but I imagine Jesse gave a brief explanation on how to read a JSON file in Ruby. I was a little late this morning so I unfortunately missed out on that. Fortunately, JSONs seem simple enough to use. When you look at the file, you can see that it is just a hash so completing the challenge is just a matter of pulling out the right information. &lt;code&gt;movies.json&lt;/code&gt; provides an enormous amount of information so my first step is to use &lt;code&gt;.map&lt;/code&gt; to extract the movie titles and ratings. I can now sort the new mapped array by the ratings and simply return the first movie in the array. My &lt;a href=&quot;https://github.com/joeypoon/iron_yard/blob/master/day-31/challenge.rb&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Our first JS lecture starts with a brief history on the interwebs. After history, we start playing around in jsbin. Jesse’s philosophy of learning a new language is to draw parallels to your primary language. Such was our lesson. We would write out how to do something in Ruby and then translate it into JavaScript, each time noting the differences. We covered the basics such as &lt;code&gt;var&lt;/code&gt;, &lt;code&gt;function()&lt;/code&gt;, &lt;code&gt;console.log()&lt;/code&gt;, &lt;code&gt;alert()&lt;/code&gt;, and debugging with the inspector. We also briefly touched on &lt;code&gt;underscore.js&lt;/code&gt; which is pretty awesome because it basically gives us access to Ruby methods.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-31&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is a carbon copy of &lt;a href=&quot;/blog/week-1-the-iron-yard/&quot; target=&quot;\_blank&quot;&gt;day 1&lt;/a&gt; but in JavaScript. My &lt;a href=&quot;http://jsbin.com/zifiyemasu/edit?js,console&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;tuesday&quot;&gt;Tuesday&lt;/h3&gt;
-&lt;p&gt;Uncle (tropical storm)Bill didn’t want us to have class today.
-&lt;img src=&quot;/blog/img/hurricane-bill.jpg&quot; alt=&quot;hurricane-bill&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;wednesday&quot;&gt;Wednesday&lt;/h3&gt;
-&lt;p&gt;Morning challenges are being cancelled for the rest of the week. We’ve now missed 2 days of class due to weather so we’re trying to keep up with the lectures. Straight into lecture we go!&lt;/p&gt;
-
-&lt;p&gt;Today we have jQuery and remote forms in Rails. jQuery makes using JavaScript so much more bearable. Being able to get elements with &lt;code&gt;$(&#39;.className&#39;)&lt;/code&gt; as opposed to &lt;code&gt;document.getElementByClass(&#39;className&#39;)&lt;/code&gt; makes me so much happier. The number of lines of code you save using jQuery over vanilla JS makes me cry salty nerd tears. Remote forms are basically JS forms. The response is provided in JS instead of HTML. This is useful for responsive sites since you don’t have to reload the entire page.&lt;/p&gt;
-
-&lt;p&gt;Tonight’s &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-33&quot; target=&quot;\_blank&quot;&gt;homework&lt;/a&gt; is practice with enumerables in JavaScript. We get to cheat and use &lt;code&gt;underscore.js&lt;/code&gt; since we’re not a JS class 😀. Honestly, I considered just teaching myself to use CoffeeScript since it seems much more intuitive to my brain but I figured that I would need vanilla JS in the future. My &lt;a href=&quot;http://jsbin.com/hepekiteva/edit?js,console&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
-&lt;p&gt;Today is mostly a review day. The only real addition is lots of modals and throwing remote forms into modals. Bootstrap is your friend.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-7-lab&quot; target=&quot;\_blank&quot;&gt;Lab&lt;/a&gt; this week is building Pinterest using tons of modals and remote forms. The goal is to only refresh on login and on &lt;code&gt;root_path&lt;/code&gt;. I actually planned to speed through this lab and spend the weekend filling my brain with some more &lt;code&gt;Ember.js&lt;/code&gt; but things got complicated fast. I never used Pinterest before but researching Pinterest made me realize that it actually has a ton of features so my Trello board kept getting longer and longer. I found myself rethinking how I want to implement certain features constantly. As a result, I kept backtracking.&lt;/p&gt;
-
-&lt;p&gt;It is funny how some things may seem complicated at first but once you break it down into pieces it eventually comes together. It’s one of the reasons I love programming so much. When I started planning allowing users to favorite posts, I actually ended up taking a loooooong break because the thought of the number of things I need to do just sounded like a lot when I bunched it all together. When I finally sat back down and broke it into pieces it looked simple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* need a place to save favorited posts - add column to users table
-* need a way to view own favorited posts - add route/action/view
-* need to see a user&#39;s favorited posts - add that user&#39;s favorited posts to displayed posts
-* repeat some of the above and modify for un-favoriting
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Of course there was some debugging thrown in but the ability to break problems down into such small pieces is just such an amazing part of coding. Also praise version control. I would be way too scared to make changes to my code without &lt;code&gt;git checkout -b branch_name&lt;/code&gt;. Since I am praising things, &lt;a href=&quot;https://github.com/github/hub&quot; target=&quot;\_blank&quot;&gt;hub&lt;/a&gt; is an awesome addition for git. I’m not entirely happy with the number of features yet but here’s where I’m at currently for my lab: &lt;a href=&quot;https://github.com/joeypoon/staple&quot; target=&quot;\_blank&quot;&gt;code&lt;/a&gt; | &lt;a href=&quot;https://joey-staple.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;site&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
-&lt;p&gt;Our guest for the week is Darren Ansley. Darren comes to us today with an inspiring story of how he started from humble origins and over the years has become an amazing programmer. It is a great reminder that if you stick to your passion relentlessly, you will succeed.&lt;/p&gt;
-
-&lt;p&gt;With final projects closing in, Martin and I had a little planning session. It’s pretty amazing how much you can learn and the number of ideas you can get from asking others. The current iteration of my final project idea sounds nothing like my initial idea. It will be interesting to see how much more it’ll evolve in the coming weeks.&lt;/p&gt;
-
-&lt;h3 id=&quot;other-things&quot;&gt;Other Things&lt;/h3&gt;
-&lt;p&gt;It’s amazing when I look at how much I’ve learned during my time at the Iron Yard. While it’s great that I can build more cool things now, I think what’s more amazing are the skills that I have learned along the way. One of the most important skills I have gained is definitely debugging. I mean it’s almost embarrassing when I look at my old stuff.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/blog/learning-rails&quot; target=&quot;\_blank&quot;&gt;This&lt;/a&gt; for example. I spent an entire day trying to figure out what was going on. When I look at it now, I can only slap myself for my stupidity. It had nothing to do with my JS not loading, I simply needed &lt;code&gt;$(document).ready&lt;/code&gt; since my code was loading before my window was ready. If I had simply used the inspector, I would have seen that my JS was loaded but too early. I hope that I will continue to find the stupidity in my past code 😀.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 21 Jun 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/week-7-the-iron-yard</link>
-        <guid isPermaLink="true">joeypoon.com/blog/week-7-the-iron-yard</guid>
         
         
       </item>

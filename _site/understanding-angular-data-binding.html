@@ -9,9 +9,9 @@
     <meta name="description" content="A Programmer's Adventures">
 
     <title>Blog | Joey F. Poon</title>
-    <!-- <title>Blog | Joey F. Poon</title> -->
+    <!-- <title>Understanding Angular Data Binding - Blog | Joey F. Poon</title> -->
 
-    <link rel="canonical" href="joeypoon.com/blog/page3/">
+    <link rel="canonical" href="joeypoon.com/blog/understanding-angular-data-binding">
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
     <link rel="stylesheet" href="/blog/css/clean-blog.min.css">
     <link rel="stylesheet" href="/blog/css/syntax.css">
@@ -66,146 +66,69 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Joey F. Poon</h1>
-                    <!-- <h1>Blog | Joey F. Poon</h1> -->
-                    <hr class="small">
-                    <span class="subheading">A Programmer's Adventures</span>
-                    <ul class="list-inline text-center" style="font-size:1.5em;">
-                      
-                      <li>
-                          <a href="https://github.com/joeypoon" target="_blank">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      
-                        
-                        <li>
-                            <a href="https://twitter.com/joeyfpoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="https://www.linkedin.com/in/joeypoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
+                <div class="post-heading">
+                    <h1>Understanding Angular Data Binding</h1>
+                    
+                    <h2 class="subheading">$watch, $digest, $apply</h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on June 29, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/blog/week-7-the-iron-yard.html">
-        <h2 class="post-title">            Week 7 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Learning JavaScript
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on June 21, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/blog/week-6-the-iron-yard.html">
-        <h2 class="post-title">            Week 6 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Halfway point
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on June 13, 2015</p>
-</div>
-<hr>
+				<p>So this is a little late now that Angular 2 is coming out but I still have to write Angular at work so here it is: how Angular knows when data has changed.</p>
 
-<div class="post-preview">
-    <a href="/blog/week-5-the-iron-yard.html">
-        <h2 class="post-title">            Week 5 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Databases, tables, and PostgreSQL
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on June 7, 2015</p>
-</div>
-<hr>
+<h3 id="angular-context">Angular Context</h3>
+<p><em>Angular context</em> basically means something that Angular knows about. You’ve probably heard of <code>$watch</code>, <code>$digest</code>, and <code>$apply</code> before but may not have actually used them. This is because everything you use from the Angular library is automatically executed in the <em>Angular context</em> and will use <code>$watch</code>, <code>$digest</code>, and <code>$apply</code> for you. However, sometimes you run into bugs that you can’t explain or performance issues and that is when knowledge of <code>$watch</code>, <code>$digest</code>, and <code>$apply</code> will be useful.</p>
 
-<div class="post-preview">
-    <a href="/blog/week-4-the-iron-yard.html">
-        <h2 class="post-title">            Week 4 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Rails and dynamic pages
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 31, 2015</p>
-</div>
-<hr>
+<h3 id="watch">$watch</h3>
+<p><code>$watch</code> tells Angular to watch something for changes. Angular automatically adds a <code>$watch</code> when you use directives (<code>ng-model</code>, <code>ng-repeat</code>, etc) or data-binding {{ myModel }}. You can also manually tell Angular to <code>$watch</code> something:</p>
 
-<div class="post-preview">
-    <a href="/blog/week-3-the-iron-yard.html">
-        <h2 class="post-title">            Week 3 The Iron Yard
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Peanut butter and Jekyll
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on May 24, 2015</p>
-</div>
-<hr>
+<script src="https://gist.github.com/joeypoon/8ec148cb05ce428db9ebffe59d53dcb6.js"></script>
+
+<p><code>$watch</code> checks by reference by default so if you need to check by value such as in the second example above, you need to pass <code>true</code> as the third param. It is important to note that <code>$watch</code> doesn’t actually do dirty-checking or change the DOM to reflect the changes. When does that happen you ask?</p>
+
+<h3 id="digest">$digest</h3>
+<p><code>$digest</code> is what actually checks for and triggers changes. When <code>$digest</code> is called the <code>$digest</code> cycle starts. During the <code>$digest</code> cycle, all of the <code>$watch</code>ers on the current and children scope are checked for changes. If any changes are present, the cycle is repeated. This will continue until no more changes are found (or 10 cycles looped) and the cycle ends leaving the DOM to be updated with the reported changes.</p>
+
+<h3 id="apply">$apply</h3>
+<p>So if <code>$watch</code> and <code>$digest</code> are enough to check for changes and update the DOM, why is this post not finished? Because when Angular runs the <code>$digest</code> cycle for you, it is actually calling <code>$apply</code> first. <code>$apply</code> calls <code>$rootScope.$digest</code>. This is an important difference for two reasons. First, this executes from the <code>$rootScope</code> instead of the current scope. Second, <code>$apply</code> will apply the <code>$digest</code> the <em>Angular context</em>. This is good since Angular will be able to catch any exceptions.</p>
+
+<p>And now you’re an expert on Angular data binding.</p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/blog/page2">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/blog/page4">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/understanding-javascript.html" data-toggle="tooltip" data-placement="top" title="Undertanding JavaScript">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/performance-optimization.html" data-toggle="tooltip" data-placement="top" title="Performance Optimization">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
