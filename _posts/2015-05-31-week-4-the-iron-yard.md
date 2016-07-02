@@ -8,7 +8,7 @@ header-img: "img/home-bg.jpg"
 ---
 
 ### Bittersweet
-It's the end of my 4th week at TIY and it's a strange feeling. We've gone from variables and arrays on day 1 to creating <a href="https://github.com/joeypoon/surf_and_rails">dynamic pages with Rails</a> in less than 20 class days. With a third of the program now complete, I'm excited about what more I'll be able to do at the end of the whole program. At the same time, I'm sad to see time passing so quickly. These 4 weeks have been the busiest and yet the most rewarding weeks of my life. It's a bittersweet feeling. Oh, and I did <a href="{{ site.baseurl }}/week-3-the-iron-yard">eventually</a> finish our <a href="https://github.com/joeypoon/surf-and-paddle">week 3 lab</a>.
+It's the end of my 4th week at TIY and it's a strange feeling. We've gone from variables and arrays on day 1 to creating <a href="https://github.com/joeypoon/surf_and_rails">dynamic pages with Rails</a> in less than 20 class days. With a third of the program now complete, I'm excited about what more I'll be able to do at the end of the whole program. At the same time, I'm sad to see time passing so quickly. These 4 weeks have been the busiest and yet the most rewarding weeks of my life. It's a bittersweet feeling. Oh, and I did <a href="{{ site.baseurl }}/week-3-the-iron-yard.html">eventually</a> finish our <a href="https://github.com/joeypoon/surf-and-paddle">week 3 lab</a>.
 
 ### Monday
 Memorial day, no class 😢.

@@ -14,7 +14,7 @@ Today starts our JavaScript adventures. <a href="https://github.com/tiy-hou-q2-2
 
 Our first JS lecture starts with a brief history on the interwebs. After history, we start playing around in jsbin. Jesse's philosophy of learning a new language is to draw parallels to your primary language. Such was our lesson. We would write out how to do something in Ruby and then translate it into JavaScript, each time noting the differences. We covered the basics such as <code>var</code>, <code>function()</code>, <code>console.log()</code>, <code>alert()</code>, and debugging with the inspector. We also briefly touched on <code>underscore.js</code> which is pretty awesome because it basically gives us access to Ruby methods.
 
-<a href="https://github.com/tiy-hou-q2-2015-rails/day-31" target="\_blank">Homework</a> is a carbon copy of <a href="{{ site.baseurl }}/week-1-the-iron-yard/" target="\_blank">day 1</a> but in JavaScript. My <a href="http://jsbin.com/zifiyemasu/edit?js,console" target="\_blank">solution</a>.
+<a href="https://github.com/tiy-hou-q2-2015-rails/day-31" target="\_blank">Homework</a> is a carbon copy of <a href="{{ site.baseurl }}/week-1-the-iron-yard.html" target="\_blank">day 1</a> but in JavaScript. My <a href="http://jsbin.com/zifiyemasu/edit?js,console" target="\_blank">solution</a>.
 
 ### Tuesday
 Uncle (tropical storm)Bill didn't want us to have class today.
@@ -49,4 +49,4 @@ With final projects closing in, Martin and I had a little planning session. It's
 ### Other Things
 It's amazing when I look at how much I've learned during my time at the Iron Yard. While it's great that I can build more cool things now, I think what's more amazing are the skills that I have learned along the way. One of the most important skills I have gained is definitely debugging. I mean it's almost embarrassing when I look at my old stuff.
 
-<a href="{{ site.baseurl }}/learning-rails" target="\_blank">This</a> for example. I spent an entire day trying to figure out what was going on. When I look at it now, I can only slap myself for my stupidity. It had nothing to do with my JS not loading, I simply needed <code>$(document).ready</code> since my code was loading before my window was ready. If I had simply used the inspector, I would have seen that my JS was loaded but too early. I hope that I will continue to find the stupidity in my past code 😀.
+<a href="{{ site.baseurl }}/learning-rails.html" target="\_blank">This</a> for example. I spent an entire day trying to figure out what was going on. When I look at it now, I can only slap myself for my stupidity. It had nothing to do with my JS not loading, I simply needed <code>$(document).ready</code> since my code was loading before my window was ready. If I had simply used the inspector, I would have seen that my JS was loaded but too early. I hope that I will continue to find the stupidity in my past code 😀.

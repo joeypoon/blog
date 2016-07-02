@@ -23,7 +23,7 @@ I've been wondering for a while how to customize urls so learning about paths in
 <pre>rails new my_app</pre> creates so many things that understanding where things were took a while. Learning about the asset pipeline was definitely a relief. Having the manifest include everything in the directory is so convenient.
 
 <h3>Tests</h3>
-I have been trying to write <a href="{{ site.baseurl }}/on-the-road-to-testing/">my own tests</a> and doing a <a href="https://github.com/joeypoon/Summer_FA_Calculator">terrible job</a>. Rails makes testing so much easier. I'm just starting to grasp the amazing things I can do with
+I have been trying to write <a href="{{ site.baseurl }}/on-the-road-to-testing.html">my own tests</a> and doing a <a href="https://github.com/joeypoon/Summer_FA_Calculator">terrible job</a>. Rails makes testing so much easier. I'm just starting to grasp the amazing things I can do with
 <pre>rake test</pre>
 but I definitely feel like I'm getting closer to TDD. Thank you
 <pre>validates</pre>

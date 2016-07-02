@@ -24,7 +24,7 @@ The project that Jesse and Matt decided to create is an imgur clone called imgde
 One of the challenges I had with React.js was routing. Rails makes routing ridiculously easy. Needing to handwrite the logic for routing was a little daunting for me. Matt walked us through the process of routing in Backbone.js and how to proxy the request through the server so that we wouldn't get CORS errors when connecting to our API. A second challenge I had with React.js was structuring my application in a way that data could flow through parent-child relationships. Witnessing Matt build the front-end of the app from ground up really helped me grasp the structure better.
 
 ### Thursday
-On the agenda today is a revisit from <a href="{{ site.baseurl }}/week-3-the-iron-yard/" target="\_blank">JB</a> to do a TDD coding dojo. Kind of. We ended up doing this instead:
+On the agenda today is a revisit from <a href="{{ site.baseurl }}/week-3-the-iron-yard.html" target="\_blank">JB</a> to do a TDD coding dojo. Kind of. We ended up doing this instead:
 <a href="https://twitter.com/JoeyFPoon/status/616675374177615874" target="\_blank"><img src="https://pbs.twimg.com/media/CI7e-mYW8AMLeH_.jpg" /></a>
 (Note: Based on how Jesse plays Sheriff of Nottingham, there is a high probability that he runs the blackmarket.)
 
