@@ -9,9 +9,9 @@
     <meta name="description" content="A Programmer's Adventures">
 
     <title>Blog | Joey F. Poon</title>
-    <!-- <title>Blog | Joey F. Poon</title> -->
+    <!-- <title>JavaScript Execution Context - Blog | Joey F. Poon</title> -->
 
-    <link rel="canonical" href="joeypoon.com/blog/page6/">
+    <link rel="canonical" href="joeypoon.com/blog/javascript-execution-context">
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
     <link rel="stylesheet" href="/blog/css/clean-blog.min.css">
     <link rel="stylesheet" href="/blog/css/syntax.css">
@@ -66,146 +66,84 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Joey F. Poon</h1>
-                    <!-- <h1>Blog | Joey F. Poon</h1> -->
-                    <hr class="small">
-                    <span class="subheading">A Programmer's Adventures</span>
-                    <ul class="list-inline text-center" style="font-size:1.5em;">
-                      
-                      <li>
-                          <a href="https://github.com/joeypoon" target="_blank">
-                              <span class="fa-stack fa-lg">
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                              </span>
-                          </a>
-                      </li>
-                      
-                        
-                        <li>
-                            <a href="https://twitter.com/joeyfpoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="https://www.linkedin.com/in/joeypoon" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
+                <div class="post-heading">
+                    <h1>JavaScript Execution Context</h1>
+                    
+                    <h2 class="subheading">What happens when functions get called</h2>
+                    
+                    <span class="meta">Posted by Joey F. Poon on July 5, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/blog/getting-closer.html">
-        <h2 class="post-title">            Getting Closer
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on March 8, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/blog/3-things-programming-taught-me.html">
-        <h2 class="post-title">            3 Things Programming Taught Me
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on March 4, 2015</p>
-</div>
-<hr>
+				<p><a href="/blog/understanding-javascript.html" target="_blank">Variable hoisting</a> is simple enough to understand; variable declarations are hoisted to the top of the current scope. Why does this happen? Let’s take a look.</p>
 
-<div class="post-preview">
-    <a href="/blog/how-to-generate-software-ideas.html">
-        <h2 class="post-title">            How to Generate Software Ideas
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on March 1, 2015</p>
-</div>
-<hr>
+<h3 id="execution-context">Execution Context</h3>
+<p>When you call a function, you enter a new <em>execution context</em>. Think of it as the context of this function’s execution; the function’s stuff if you will. Within the <em>execution context</em>, there are actually two stages.</p>
 
-<div class="post-preview">
-    <a href="/blog/risky-proposition.html">
-        <h2 class="post-title">            Risky Propostion
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on February 16, 2015</p>
-</div>
-<hr>
+<h3 id="creation-stage">Creation Stage</h3>
+<p>The first stage is the <em>creation stage</em>. Code is not executed during the creation stage, it simply sets up the context for the function to run later. The first thing it does is set the <em>scope chain</em>. The <em>scope chain</em> is basically all the scopes this function can access.</p>
 
-<div class="post-preview">
-    <a href="/blog/love-and-hate.html">
-        <h2 class="post-title">            Love and Hate
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by Joey F. Poon on February 13, 2015</p>
-</div>
-<hr>
+<script src="https://gist.github.com/joeypoon/097119fdea1d858ba7c7279266d8ee06.js"></script>
+
+<p>Next, the variables will be setup. This is called the <em>variable object</em> and it holds the arguments, function declarations, and variable declarations. Every function has access to an object called arguments which represents the arguments passed into the function. This is where the arguments object is set.</p>
+
+<script src="https://gist.github.com/joeypoon/a32efd5eddc6542705aec3f1893c7ed4.js"></script>
+
+<p>Following the arguments object, any function declarations are set on the <em>variable object</em> with the function name as its key. Note that <code>function foo () {}</code> is a function declaration but <code>var foo = function () {}</code> is not. The latter is just a variable holding a pointer to an anonymous function. This is important because the way variable declarations are set is different from the way arguments and function declarations are set.</p>
+
+<p>Variable declarations are similar to function declarations in that they are set as a property on the <em>variable object</em> with its name as the key. However, unlike function declarations, the value of these properties are set to <code>undefined</code>.</p>
+
+<p>The last step of the creation stage is to set the value of <code>this</code>.</p>
+
+<h3 id="activation-stage">Activation Stage</h3>
+<p>The next stage after the creation stage is the <em>activation stage</em>. This is simply running through each line of the code sequentially and executing.</p>
+
+<h3 id="visualing-the-execution-context">Visualing the Execution Context</h3>
+<p>The execution context can be visualized as an object. Let’s take a look at what it looks like after the creation stage.</p>
+
+<script src="https://gist.github.com/joeypoon/d8a2b6d67bae6b5c5cc72ad8637d3b4b.js"></script>
+
+<p>You can see here that the variables x and y are undefined. This is where hoisting comes from. This is why:</p>
+
+<script src="https://gist.github.com/joeypoon/ec047c1e6e1574065f75a2aa846a9b16.js"></script>
+
+<p><code>bar</code> is set to <code>undefined</code> at the end of the creation stage and since <code>console.log(bar)</code> executes before <code>var bar = 1</code> during the activation stage, it logs <code>undefined</code>.</p>
+
+<h3 id="what-about-global">What about global</h3>
+<p>You might be wondering why hoisting works in the global context. Well, that’s because there’s a <em>global execution context</em> that operates exactly like the function <em>execution context</em>.</p>
+
+<p>If you want a more in depth look at <em>execution context</em> from a much smarter person, I highly recommend this <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/" target="_blank">post by David Shariff</a>.</p>
 
 
-<!-- Pager -->
+                <hr>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/blog/page5">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/blog/page7">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/performance-optimization.html" data-toggle="tooltip" data-placement="top" title="Performance Optimization">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
 
-
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

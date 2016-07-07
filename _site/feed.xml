@@ -5,9 +5,57 @@
     <description>A Programmer&#39;s Adventures</description>
     <link>joeypoon.com/blog/</link>
     <atom:link href="joeypoon.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 01 Jul 2016 21:14:00 -0500</pubDate>
-    <lastBuildDate>Fri, 01 Jul 2016 21:14:00 -0500</lastBuildDate>
+    <pubDate>Wed, 06 Jul 2016 21:44:38 -0500</pubDate>
+    <lastBuildDate>Wed, 06 Jul 2016 21:44:38 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>JavaScript Execution Context</title>
+        <description>&lt;p&gt;&lt;a href=&quot;/blog/understanding-javascript.html&quot; target=&quot;_blank&quot;&gt;Variable hoisting&lt;/a&gt; is simple enough to understand; variable declarations are hoisted to the top of the current scope. Why does this happen? Let’s take a look.&lt;/p&gt;
+
+&lt;h3 id=&quot;execution-context&quot;&gt;Execution Context&lt;/h3&gt;
+&lt;p&gt;When you call a function, you enter a new &lt;em&gt;execution context&lt;/em&gt;. Think of it as the context of this function’s execution; the function’s stuff if you will. Within the &lt;em&gt;execution context&lt;/em&gt;, there are actually two stages.&lt;/p&gt;
+
+&lt;h3 id=&quot;creation-stage&quot;&gt;Creation Stage&lt;/h3&gt;
+&lt;p&gt;The first stage is the &lt;em&gt;creation stage&lt;/em&gt;. Code is not executed during the creation stage, it simply sets up the context for the function to run later. The first thing it does is set the &lt;em&gt;scope chain&lt;/em&gt;. The &lt;em&gt;scope chain&lt;/em&gt; is basically all the scopes this function can access.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/joeypoon/097119fdea1d858ba7c7279266d8ee06.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Next, the variables will be setup. This is called the &lt;em&gt;variable object&lt;/em&gt; and it holds the arguments, function declarations, and variable declarations. Every function has access to an object called arguments which represents the arguments passed into the function. This is where the arguments object is set.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/joeypoon/a32efd5eddc6542705aec3f1893c7ed4.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Following the arguments object, any function declarations are set on the &lt;em&gt;variable object&lt;/em&gt; with the function name as its key. Note that &lt;code&gt;function foo () {}&lt;/code&gt; is a function declaration but &lt;code&gt;var foo = function () {}&lt;/code&gt; is not. The latter is just a variable holding a pointer to an anonymous function. This is important because the way variable declarations are set is different from the way arguments and function declarations are set.&lt;/p&gt;
+
+&lt;p&gt;Variable declarations are similar to function declarations in that they are set as a property on the &lt;em&gt;variable object&lt;/em&gt; with its name as the key. However, unlike function declarations, the value of these properties are set to &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The last step of the creation stage is to set the value of &lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;activation-stage&quot;&gt;Activation Stage&lt;/h3&gt;
+&lt;p&gt;The next stage after the creation stage is the &lt;em&gt;activation stage&lt;/em&gt;. This is simply running through each line of the code sequentially and executing.&lt;/p&gt;
+
+&lt;h3 id=&quot;visualing-the-execution-context&quot;&gt;Visualing the Execution Context&lt;/h3&gt;
+&lt;p&gt;The execution context can be visualized as an object. Let’s take a look at what it looks like after the creation stage.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/joeypoon/d8a2b6d67bae6b5c5cc72ad8637d3b4b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You can see here that the variables x and y are undefined. This is where hoisting comes from. This is why:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/joeypoon/ec047c1e6e1574065f75a2aa846a9b16.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;code&gt;bar&lt;/code&gt; is set to &lt;code&gt;undefined&lt;/code&gt; at the end of the creation stage and since &lt;code&gt;console.log(bar)&lt;/code&gt; executes before &lt;code&gt;var bar = 1&lt;/code&gt; during the activation stage, it logs &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-about-global&quot;&gt;What about global&lt;/h3&gt;
+&lt;p&gt;You might be wondering why hoisting works in the global context. Well, that’s because there’s a &lt;em&gt;global execution context&lt;/em&gt; that operates exactly like the function &lt;em&gt;execution context&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want a more in depth look at &lt;em&gt;execution context&lt;/em&gt; from a much smarter person, I highly recommend this &lt;a href=&quot;http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/&quot; target=&quot;_blank&quot;&gt;post by David Shariff&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jul 2016 00:00:00 -0500</pubDate>
+        <link>joeypoon.com/blog/javascript-execution-context</link>
+        <guid isPermaLink="true">joeypoon.com/blog/javascript-execution-context</guid>
+        
+        
+      </item>
     
       <item>
         <title>Performance Optimization</title>
@@ -66,7 +114,7 @@
 &lt;p&gt;&lt;code&gt;$digest&lt;/code&gt; is what actually checks for and triggers changes. When &lt;code&gt;$digest&lt;/code&gt; is called the &lt;code&gt;$digest&lt;/code&gt; cycle starts. During the &lt;code&gt;$digest&lt;/code&gt; cycle, all of the &lt;code&gt;$watch&lt;/code&gt;ers on the current and children scope are checked for changes. If any changes are present, the cycle is repeated. This will continue until no more changes are found (or 10 cycles looped) and the cycle ends leaving the DOM to be updated with the reported changes.&lt;/p&gt;
 
 &lt;h3 id=&quot;apply&quot;&gt;$apply&lt;/h3&gt;
-&lt;p&gt;So if &lt;code&gt;$watch&lt;/code&gt; and &lt;code&gt;$digest&lt;/code&gt; are enough to check for changes and update the DOM, why is this post not finished? Because when Angular runs the &lt;code&gt;$digest&lt;/code&gt; cycle for you, it is actually calling &lt;code&gt;$apply&lt;/code&gt; first. &lt;code&gt;$apply&lt;/code&gt; calls &lt;code&gt;$rootScope.$digest&lt;/code&gt;. This is an important difference for two reasons. First, this executes from the &lt;code&gt;$rootScope&lt;/code&gt; instead of the current scope. Second, &lt;code&gt;$apply&lt;/code&gt; will apply the &lt;code&gt;$digest&lt;/code&gt; the &lt;em&gt;Angular context&lt;/em&gt;. This is good since Angular will be able to catch any exceptions.&lt;/p&gt;
+&lt;p&gt;So if &lt;code&gt;$watch&lt;/code&gt; and &lt;code&gt;$digest&lt;/code&gt; are enough to check for changes and update the DOM, why is this post not finished? Because when Angular runs the &lt;code&gt;$digest&lt;/code&gt; cycle for you, it is actually calling &lt;code&gt;$apply&lt;/code&gt; first. &lt;code&gt;$apply&lt;/code&gt; calls &lt;code&gt;$rootScope.$digest&lt;/code&gt;. This is an important difference for two reasons. First, this executes from the &lt;code&gt;$rootScope&lt;/code&gt; instead of the current scope. Second, &lt;code&gt;$apply&lt;/code&gt; will apply the &lt;code&gt;$digest&lt;/code&gt; to the &lt;em&gt;Angular context&lt;/em&gt;. This is good since Angular will be able to catch any exceptions.&lt;/p&gt;
 
 &lt;p&gt;And now you’re an expert on Angular data binding.&lt;/p&gt;
 </description>
@@ -349,78 +397,6 @@ Callbacks allow you to run code based on the life cycle of an object. How did I 
         <pubDate>Sat, 04 Jul 2015 00:00:00 -0500</pubDate>
         <link>joeypoon.com/blog/week-9-the-iron-yard</link>
         <guid isPermaLink="true">joeypoon.com/blog/week-9-the-iron-yard</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Week 8 The Iron Yard</title>
-        <description>&lt;h3 id=&quot;learning-to-learn&quot;&gt;Learning to learn&lt;/h3&gt;
-&lt;p&gt;It’s hard to believe but we are now 2/3s done with Rails Engineering at The Iron Yard. We only have one more month left and so many more things to learn. One of TIY’s sayings is that they teach you how to learn. To this end, I often see Jesse purposely not give a full answer because he wants you to bang your head a little. Make no mistake, you don’t magically learn stuff at The Iron Yard. You have to work for it. On our first day, Jesse was clear that the only way for us to learn enough to become junior dev ready in 12 weeks is to push us just beyond our comfort zone. In recognition of this, I must say, I have learned an amazing amount and I have definitely learned how to learn more efficiently. I mean, I am no &lt;code&gt;React.js&lt;/code&gt; expert but the fact that I can read and understand docs enough to build a working product (albeit simple) within a day is amazing. There is no way I could have reached this point in two months by myself. I love what TIY has helped me accomplish. I am excited what another month at TIY will bring.&lt;/p&gt;
-
-&lt;h3 id=&quot;monday&quot;&gt;Monday&lt;/h3&gt;
-&lt;p&gt;We’re still in catch up mode due to our missed days so no challenges for this week either. Today’s lecture is over consuming APIs. Basically, we are shown how to make requests to other people’s APIs and how to process the response. I think the coolest thing is learning about the some of the awesome APIs that are already out there. Jesse showed us the &lt;a href=&quot;http://deckofcardsapi.com/&quot; target=&quot;\_blank&quot;&gt;deckofcardsapi&lt;/a&gt; and you can hear everyone asking in their heads why we made &lt;a href=&quot;/blog/week-2-the-iron-yard-and-my-first-hackathon.html&quot; target=&quot;\_blank&quot;&gt;blackjack&lt;/a&gt; from scratch. It’s funny how complicated it use to sound when I heard something like, “make an API request.” Now it’s just like, oh it’s just going to a URL and pulling a hash.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-36&quot; target=&quot;\_blank&quot;&gt;Homework&lt;/a&gt; is to deploy a Rails app that will get the 10 most recent Etsy listings using the Etsy API. Solution: &lt;a href=&quot;https://github.com/joeypoon/etsy_api&quot; target=&quot;\_blank&quot;&gt;Code&lt;/a&gt; | &lt;a href=&quot;https://joey-esty-api.herokuapp.com/&quot; target=&quot;\_blank&quot;&gt;Site&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;tuesday&quot;&gt;Tuesday&lt;/h3&gt;
-&lt;p&gt;Today’s lecture is the meat of the week. Creating an API. Rails maybe a full-stack framework but it is extremely common for it to be used just for back-end. I imagine this is because Rails makes it super easy to create an API server that spits out json data using jbuilder. To demonstrate how to create an API and why we create APIs, we created a &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-37/tree/master/atm&quot; target=&quot;\_blank&quot;&gt;bank ATM API&lt;/a&gt; in class. This ATM API would be able to deposit and withdraw money from a customer’s account securely through use of a token. The main difference between a Rails API and a full-stack Rails app is that you don’t return html to the browser, but json which is really just a hash.&lt;/p&gt;
-
-&lt;p&gt;For &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-37&quot; target=&quot;\_blank&quot;&gt;homework&lt;/a&gt;, we are to create a Rails API which does the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;GET /posts to return all posts
-GET /posts/:id gives details of a post
-POST /posts creates a post
-PUT /posts/:id updates a post
-PATCH /posts/:id updates a post
-DELETE /posts/:id deletes a post
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;My &lt;a href=&quot;https://github.com/joeypoon/day-37&quot; target=&quot;\_blank&quot;&gt;solution&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;wednesday&quot;&gt;Wednesday&lt;/h3&gt;
-&lt;p&gt;Today is a review day. Jesse went over both using and creating an API by building two separate Rails apps, one for front-end and one for back-end. Our example for this review is an &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/day-38&quot; target=&quot;\_blank&quot;&gt;application for displaying books and authors&lt;/a&gt;. I know I have the tendency to gloss over reviews in my posts so let me clarify how helpful they actually are. People do not usually learn things the first time they see it. This was what I experienced a lot of when I was self-learning how to program. I would finish a tutorial and be like hah! ezpz. But when I was done, I still had trouble applying it more broadly to build something from scratch. It would take me almost a year before I could even &lt;a href=&quot;/blog/working-efficiently.html&quot; target=&quot;\_blank&quot;&gt;start writing something from scratch&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;It’s vastly different to go over a scripted tutorial versus seeing a programmer (who has an aptitude for teaching) write something from scratch. You get to see the thought process, the problems that occur and how to solve them, and you get to ask questions right then and there. This has been essential to my rapid growth. Information is far more easily absorbed when I can understand why each step is taken. Even the best tutorials do not do this perfectly. This is especially important when learning something like Rails which makes a lot of assumptions about how you should program and name things. I have spent countless hours trying to figure out why something didn’t work only to realize that I didn’t name it correctly.&lt;/p&gt;
-
-&lt;p&gt;Another vital part of being in a classroom with someone like Jesse is that you learn how to debug. The fact is that your program will almost never work the first time. You need to learn how to figure out what the problem is in a systematic way. Being able to watch Jesse run into problems and how he thinks through them has been essential to my ability to debug.&amp;lt;/rambling&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;Jesse is going to be out for the rest of the week so we get &lt;a href=&quot;https://github.com/tiy-hou-q2-2015-rails/week-8-lab&quot; target=&quot;\_blank&quot;&gt;lab&lt;/a&gt; early this week. This week is our first paired project (kind of…). Each pair is to create an API server and a front-end to request and display that data. The app itself is basically an anonymous messaging board. It’s super cool to see group projects because this will give you a good idea of the workflow when employed as a dev. I imagine the hardest part of this lab for most pairs will simply be to effectively separate tasks/features(Trello is awesome for this) and manage their git repo. However, our Rails Engineering class has 9 people. As Jesse worded it: “Joey, you will not so randomly be working by yourself.” I am a little sad that I won’t be able to experience a paired project yet but also a little happy with his confidence in me. Either way, next week’s lab will be a group project with the front-end class so I’m not too worried about it.&lt;/p&gt;
-
-&lt;p&gt;Another interesting thing about separating the front-end and back-end is that we now have to think slightly differently. We now have to not only think about features but also break those features down into which parts should be back-end and which parts should be front-end. For example, when you log in a user, you need to both authenticate the user and change the UI to reflect that the user has been signed in. So we now have to break the login feature into a back-end user authentication and a front-end rendering of UI. The back-end then has to determine what info they want for authentication and what data do they need to feed back to the front-end. The front-end then has some UI and UX decisions to make with the data that was fed back. I’m glad that we get to start learning to think this way.&lt;/p&gt;
-
-&lt;h3 id=&quot;thursday&quot;&gt;Thursday&lt;/h3&gt;
-&lt;p&gt;Jesse is out and I’m doing the lab on my own so I decided to just work from home today. The lab itself calls for a Rails back-end and a Rails front-end but I decided that I wanted to make it a little more interesting by using a JavaScript front-end framework instead, &lt;code&gt;Ember.js&lt;/code&gt;. I did a quick version of the back-end since I knew I would be spending a ton of times in Ember docs. Jesse is huge on Ember.js and I can understand why. Ember-cli makes it very similar to Rails and it took me almost no time to get a semi-working front-end. It took me less than half a day to get Ember to display my posts list, create a post, create a user, and send a request to authenticate a user. The problem came when I had to find a way to do user sessions. Theoretically, I should be able to easily use Ember Data’s &lt;code&gt;DS.store&lt;/code&gt; to hold the session data. I spent an entire day trying to get it to work.&lt;/p&gt;
-
-&lt;p&gt;Matt (Our Houston front-end instructor) gave me a hand and used some expert JS debugging skills to give me a solution but as I continued trying to use Ember, I realized that the session info was not persisting between page reloads. I love the idea of Ember, but I found the docs to be quite outdated. To be fair, I was probably a little too confident with my learning ability to try to learn Ember while our resident Ember.js expert (Jesse) was out. I’m sure if I were more experienced that I could figure it out but there was no way I could finish my lab before the end of the weekend at the pace I was going. And so I made the decision to put Ember on hold and at the advice of Matt, try &lt;code&gt;React.js&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The first thing I can say about React.js is that it has some pretty nice docs. It took me about a day but I was able to implement a basic version of the lab in React. One of the key ideas of React is the use of components. Components are basically custom made HTML elements which enjoys some custom implementations. For example, I can make a &lt;PostForm&gt; component and reuse it. I think of it as I think of Rails partials. The cool thing is that components are a thing in Ember too and I do plan on re-visting Ember again next week. Another key idea of React is that components should be structured in a way that data flows in a linear fashion. Basically, data should only be accessible within parent-child relationships. This was a little tough for me and I ended up cheating by not using React&#39;s &lt;code&gt;setState&lt;/code&gt; but instead using &lt;code&gt;sessionStorage.setItem()&lt;/code&gt;. I think I can fix that by creating an app component and nesting but... time. I&#39;m sure that I&#39;m missing out on a lot of the React.js way of doing things, but here&#39;s my current solution: &lt;a href=&quot;https://github.com/joeypoon/secrets&quot; target=&quot;\_blank&quot;&gt;Code&lt;/a&gt; | &lt;a href=&quot;http://joeypoon.com/secrets/&quot; target=&quot;\_blank&quot;&gt;Site&lt;/a&gt;. The posts may take a second to load in the beginning since my back-end is on Heroku and the server will go to sleep if unused for a period of time. I am super proud of the non-existent load time when creating a new post though :).&lt;/PostForm&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;friday&quot;&gt;Friday&lt;/h3&gt;
-&lt;p&gt;Our guest speaker today is Jeff Reichman from January Advisors. I met Jeff back during the &lt;a href=&quot;/blog/week-2-the-iron-yard-and-my-first-hackathon.html&quot; target=&quot;\_blank&quot;&gt;3rd annual Houston Hackathon&lt;/a&gt; and he is big on making Houston a better place using technology. He shared with us the some amazing facts about the City of Houston government and how we as devs can help make the city a better place. The City of Houston has a huge amount of data that isn’t being utilized and as devs we are in prime position to help make the data useful.&lt;/p&gt;
-
-&lt;p&gt;I also spotted Efrain, who we had as a speaker during our &lt;a href=&quot;/blog/week-1-the-iron-yard.html&quot; target=&quot;\_blank&quot;&gt;first week&lt;/a&gt;, in the building so I checked in with him to see how his accelerator experience was going. Apparently he’s in Houston this weekend to meet with some investors. Such cool, much jealous.&lt;/p&gt;
-
-&lt;h3 id=&quot;other-things&quot;&gt;Other things&lt;/h3&gt;
-&lt;p&gt;I have to admit that I am loving the things I can do with JavaScript. Looking at my previous Rails apps, they feel kind of clunky in terms of load times. The language itself still hasn’t made much of an impression on me but I definitely can’t live without it anymore.&lt;/p&gt;
-
-&lt;p&gt;So I was asked yesterday about how I organize my Trello boards for projects. I’m still learning and adapting but here’s the &lt;a href=&quot;https://trello.com/b/VkKMuy6X/staple&quot; target=&quot;\_blank&quot;&gt;board&lt;/a&gt; I used for &lt;a href=&quot;/blog/week-7-the-iron-yard.html&quot; target=&quot;\_blank&quot;&gt;last week’s lab&lt;/a&gt;. It’s terrible and I’m still trying to figure out a systematic way of organizing it but the basic idea is that each card should be a feature. If I think of a feature I want, I add it to the board immediately so I don’t forget it. If I’m in the middle of working on a feature, I don’t stop and switch but just add the idea to the board and finish my current feature card.&lt;/p&gt;
-
-&lt;p&gt;When I implement a feature, I always start with the simplest implementation. In the same way, I usually work on cards in order of simplicity. If I think of something that I feel like the feature should also do, I just add a card. For example, let’s say I want a login form within a modal. Well, that’s really multiple steps:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;1: login form
-2: form submission
-3: processing form request
-4: moving the form to a modal
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Trello, I would probably make all 4 a separate card. I’m not 100% sure on this since one can argue that a login form automatically means that you will need to have form submission. However, when programming, I would definitely create the form first and make sure that it displays before I worry about the form submission. This is a vital idea since if you implement an entire feature and it doesn’t work, it makes it harder to figure out what part of it is broken. Always get one thing working before you move on to the next part.&lt;/p&gt;
-
-&lt;p&gt;Well, that’s it for this week. As always, if you have any questions or concerns, feel free to tweet &lt;a href=&quot;https://twitter.com/JoeyFPoon&quot; target=&quot;\_blank&quot;&gt;@joeyfpoon&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 28 Jun 2015 00:00:00 -0500</pubDate>
-        <link>joeypoon.com/blog/week-8-the-iron-yard</link>
-        <guid isPermaLink="true">joeypoon.com/blog/week-8-the-iron-yard</guid>
         
         
       </item>

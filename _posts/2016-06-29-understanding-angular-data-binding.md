@@ -22,6 +22,6 @@ So this is a little late now that Angular 2 is coming out but I still have to wr
 `$digest` is what actually checks for and triggers changes. When `$digest` is called the `$digest` cycle starts. During the `$digest` cycle, all of the `$watch`ers on the current and children scope are checked for changes. If any changes are present, the cycle is repeated. This will continue until no more changes are found (or 10 cycles looped) and the cycle ends leaving the DOM to be updated with the reported changes.
 
 ### $apply
-So if `$watch` and `$digest` are enough to check for changes and update the DOM, why is this post not finished? Because when Angular runs the `$digest` cycle for you, it is actually calling `$apply` first. `$apply` calls `$rootScope.$digest`. This is an important difference for two reasons. First, this executes from the `$rootScope` instead of the current scope. Second, `$apply` will apply the `$digest` the *Angular context*. This is good since Angular will be able to catch any exceptions.
+So if `$watch` and `$digest` are enough to check for changes and update the DOM, why is this post not finished? Because when Angular runs the `$digest` cycle for you, it is actually calling `$apply` first. `$apply` calls `$rootScope.$digest`. This is an important difference for two reasons. First, this executes from the `$rootScope` instead of the current scope. Second, `$apply` will apply the `$digest` to the *Angular context*. This is good since Angular will be able to catch any exceptions.
 
 And now you're an expert on Angular data binding.
